@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TUSHAR WASHISHTHA // PREMIUM PORTFOLIO</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- THREE.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://unpkg.com/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://unpkg.com/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+</head>
+
+<body>
+    <!-- V109: ATMOSPHERIC OVERLAY -->
+    <div id="atmosphere">
+        <div class="film-grain"></div>
+        <div class="vignette"></div>
+    </div>
+
+    <!-- CINEMATIC ENGINE CANVAS -->
+    <div id="premium-root">
+        <canvas id="cinematic-canvas"></canvas>
+    </div>
+
+    <!-- MAIN INTERFACE -->
+    <main id="premium-interface">
+
+        <!-- SCREEN 1: HERO -->
+        <section class="premium-screen screen-hero" id="screen-hero">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <h1 class="premium-title">TUSHAR<br>WASHISHTHA</h1>
+                    <div class="subtitle-block">
+                        <p>Entry-Level Front-End & Python Developer</p>
+                        <p class="highlight">Focused on Web Development, AI & Machine Learning</p>
+                        <p>Ready to Learn and Collaborate</p>
+                    </div>
+
+                    <!-- NEW AI HIGHLIGHT BLOCK -->
+                    <div class="ai-statement glass-highlight animate-in">
+                        <p>
+                            “I specialize in building projects using modern <strong>AI-assisted development</strong>,
+                            focusing on problem-solving, debugging, and delivering
+                            <strong>working solutions</strong> rather than just writing code line-by-line.”
+                        </p>
+                    </div>
+                </div>
+                <div class="hero-right">
+                    <div class="profile-card" data-tilt>
+                        <img src="assets/tushar_photo.jpg" alt="Tushar Washishtha" class="profile-img">
+                        <div class="glow-effect"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-footer">
+                <div class="counter-item">
+                    <span class="count" data-target="2">0</span>
+                    <span class="label">Major Projects</span>
+                </div>
+                <div class="counter-item">
+                    <span class="count" data-target="5">0</span>
+                    <span class="label">Certifications</span>
+                </div>
+                <div class="counter-item">
+                    <span class="count" data-target="12">0</span>
+                    <span class="label">Technologies</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCREEN 2: ABOUT -->
+        <section class="premium-screen" id="screen-about">
+            <div class="screen-container">
+                <h2 class="section-title">ABOUT ME</h2>
+                <div class="premium-text-block">
+                    <p>I operate at the intersection of structural engineering and creative logic. My foundation is
+                        built on <strong>HTML5</strong> for semantic purity and <strong>CSS3</strong> for visual
+                        precision. However, I view <strong>JavaScript</strong> as the nervous system—it doesn't just add
+                        interactivity; it breathes life into the static grid.</p>
+
+                    <p>Beyond the browser, my thinking is powered by <strong>Python</strong>. I use it to solve
+                        algorithmic challenges, architect backends with <strong>Flask</strong>, and experiment with the
+                        bleeding edge of <strong>AI & Machine Learning</strong>. I don't just consume APIs; I strive to
+                        understand the tensor operations beneath them.</p>
+
+                    <p>I am a builder by nature. My philosophy is simple: learn by doing, break things to understand
+                        them, and write code that is as clean as it is functional.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCREEN 3: EDUCATION -->
+        <section class="premium-screen" id="screen-education">
+            <div class="screen-container">
+                <h2 class="section-title">EDUCATION TIMELINE</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <h3>Bachelor of Technology (IT)</h3>
+                            <span class="meta">Malwa Institute of Technology // CGPA 6.70</span>
+                            <p>Focused on Data Structures, Algorithms, and System Design. Built a strong theoretical
+                                foundation in computer science principles.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <h3>Higher Secondary (12th Science)</h3>
+                            <span class="meta">Motherland School // 67%</span>
+                            <p>Specialized in Physics and Mathematics, developing analytical problem-solving skills.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card">
+                            <h3>Secondary School (10th)</h3>
+                            <span class="meta">Little Wonders Convent // 65%</span>
+                            <p>Early foundations in logic and general sciences.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCREEN 4: SKILLS -->
+        <section class="premium-screen" id="screen-skills">
+            <div class="screen-container">
+                <h2 class="section-title">TECHNICAL ARSENAL</h2>
+                <div class="skill-grid">
+                    <div class="skill-card glass-card">
+                        <h4>Python</h4>
+                        <p>Scripting & Backend Logic</p>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <h4>JavaScript</h4>
+                        <p>DOM & Interactivity</p>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <h4>HTML5</h4>
+                        <p>Semantic Structure</p>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <h4>CSS3</h4>
+                        <p>Layout & Animation</p>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <h4>Flask</h4>
+                        <p>RESTful APIs</p>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <h4>Streamlit</h4>
+                        <p>Data Apps</p>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <h4>TensorFlow</h4>
+                        <p>Deep Learning</p>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <h4>PyTorch</h4>
+                        <p>Neural Networks</p>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <h4>Generic AI</h4>
+                        <p>Stable Diffusion XL</p>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <h4>GitHub</h4>
+                        <p>Version Control</p>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <h4>Kaggle</h4>
+                        <p>Datasets</p>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <h4>Colab</h4>
+                        <p>Cloud GPU</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCREEN 5: PROJECTS -->
+        <section class="premium-screen" id="screen-projects">
+            <div class="screen-container">
+                <h2 class="section-title">FEATURED PROJECTS</h2>
+
+                <!-- PROJECT 1 -->
+                <div class="project-showcase">
+                    <div class="project-visuals">
+                        <img src="assets/project_bird_blue.png" class="project-thumb glass-hover"
+                            data-full="assets/project_bird_blue.png">
+                        <img src="assets/project_bird_dark.png" class="project-thumb glass-hover"
+                            data-full="assets/project_bird_dark.png">
+                    </div>
+                    <div class="project-details glass-card">
+                        <h3>Bird Species Identification</h3>
+                        <p class="tech-stack">CNN • RNN • Flask • Streamlit</p>
+                        <p>A multi-modal classification system capable of identifying 450 bird species. The architecture
+                            fuses visual data (processed via ResNet50 CNN) with audio spectrograms (processed via RNN)
+                            to achieve high-accuracy predictions.</p>
+                        <p><strong>Key Tech:</strong> Kaggle Datasets, Transfer Learning, Audio-Visual Fusion.</p>
+                    </div>
+                </div>
+
+                <!-- PROJECT 2 -->
+                <div class="project-showcase">
+                    <div class="project-visuals">
+                        <img src="assets/project_genai_input.png" class="project-thumb glass-hover"
+                            data-full="assets/project_genai_input.png">
+                        <img src="assets/project_genai_output.png" class="project-thumb glass-hover"
+                            data-full="assets/project_genai_output.png">
+                    </div>
+                    <div class="project-details glass-card">
+                        <h3>SDXL Text-to-Image Generator</h3>
+                        <p class="tech-stack">Stable Diffusion XL • Colab GPU • Ngrok</p>
+                        <p>A distributed generative AI pipeline. To bypass local hardware limits, the inference engine
+                            runs on a Google Colab T4 GPU. A Flask API is exposed via Ngrok tunneling, consumed by a
+                            local Streamlit frontend for real-time image synthesis.</p>
+                        <p><strong>Key Tech:</strong> Distributed Cloud Compute, Latent Diffusion.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SCREEN 6: CERTIFICATIONS -->
+        <section class="premium-screen" id="screen-certs">
+            <div class="screen-container">
+                <h2 class="section-title">CERTIFICATIONS</h2>
+                <div class="cert-grid-premium">
+                    <div class="cert-card glass-hover" data-full="assets/cert_aws.png">
+                        <img src="assets/cert_aws.png" alt="AWS Cloud">
+                        <div class="cert-overlay">AWS CERTIFIED</div>
+                    </div>
+                    <div class="cert-card glass-hover" data-full="assets/cert_python_skillup.png">
+                        <img src="assets/cert_python_skillup.png" alt="Python Skillup">
+                        <div class="cert-overlay">PYTHON SKILLUP</div>
+                    </div>
+                    <div class="cert-card glass-hover" data-full="assets/cert_scaler.png">
+                        <img src="assets/cert_scaler.png" alt="Scaler">
+                        <div class="cert-overlay">SCALER ACADEMY</div>
+                    </div>
+                    <div class="cert-card glass-hover" data-full="assets/cert_udemy.png">
+                        <img src="assets/cert_udemy.png" alt="Python Cert">
+                        <div class="cert-overlay">PYTHON BOOTCAMP</div>
+                    </div>
+                    <div class="cert-card glass-hover" data-full="assets/cert_linkedin.png">
+                        <img src="assets/cert_linkedin.png" alt="LinkedIn">
+                        <div class="cert-overlay">LINKEDIN SKILL</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCREEN 7: TOOLS -->
+        <section class="premium-screen" id="screen-tools">
+            <div class="screen-container">
+                <h2 class="section-title">WORKFLOW & TOOLS</h2>
+                <div class="workflow-grid">
+                    <div class="tool-item glass-card">
+                        <h3>VS Code</h3>
+                        <p>My primary IDE. Configured with Pylint, Prettier, and GitLens for a disciplined coding
+                            environment.</p>
+                    </div>
+                    <div class="tool-item glass-card">
+                        <h3>GitHub</h3>
+                        <p>Version control is non-negotiable. I use feature branches and commit often to maintain a
+                            clean history.</p>
+                    </div>
+                    <div class="tool-item glass-card">
+                        <h3>Google Colab</h3>
+                        <p>My cloud laboratory. Essential for training deep learning models that require high-VRAM GPUs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCREEN 8: CONTACT -->
+        <section class="premium-screen" id="screen-contact">
+            <div class="screen-container contact-layout">
+                <h2 class="section-title">LETS COLLABORATE</h2>
+                <div class="contact-card glass-card">
+                    <p class="contact-label">EMAIL</p>
+                    <a href="mailto:tusharwashishtha2@gmail.com" class="contact-link">tusharwashishtha2@gmail.com</a>
+
+                    <p class="contact-label">LOCATION</p>
+                    <span class="contact-text">Indore, India</span>
+
+                    <!-- RESUME LINK - POINTS TO PDF THAT USER MUST UPLOAD -->
+                    <a href="assets/Tushar_Resume.pdf" class="premium-btn" download>DOWNLOAD RESUME PDF</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PREMIUM MODAL -->
+    <div id="premium-modal">
+        <button id="modal-close">✕</button>
+        <img id="modal-image" src="" alt="Full View">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

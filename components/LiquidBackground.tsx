@@ -165,7 +165,11 @@ function Simulation() {
     // Render Target for Display
     const renderMaterial = useMemo(() => new THREE.ShaderMaterial({
         uniforms: {
-            uTexture: { value: null }
+            uTexture: { value: null },
+            uTime: { value: 0 },
+            uMouse: { value: new THREE.Vector2(0, 0) },
+            uResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
+            uScroll: { value: 0 }
         },
         vertexShader: renderVertexShader,
         fragmentShader: renderFragmentShader

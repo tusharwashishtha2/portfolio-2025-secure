@@ -426,8 +426,8 @@ export default function Portfolio() {
             </div>
 
             <a
-              href="/assets/Resume_Final_2025.pdf"
-              download="Resume_Final_2025.pdf"
+              href="/assets/Tushar_Washishtha_Resume_Fixed.pdf"
+              download="Tushar_Washishtha_Resume_Fixed.pdf"
               className={`inline-flex items-center gap-2 border px-8 py-4 rounded-full transition-all duration-300 font-bold tracking-widest text-sm ${neuralMode ? "border-orange-500/50 hover:bg-orange-500 hover:text-black" : "border-slate-300 hover:bg-slate-900 hover:text-white"}`}
             >
               <Download size={18} /> DOWNLOAD RESUME PDF

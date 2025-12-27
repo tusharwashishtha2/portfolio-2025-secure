@@ -168,6 +168,7 @@ export default function Portfolio() {
       {/* 4. MAIN CONTENT */}
       <main
         className="relative z-10 container mx-auto px-6 py-20 flex flex-col gap-32 overflow-x-hidden"
+        style={!neuralMode ? { filter: "url(#liquid-warp)" } : {}}
       >
 
         {/* HERO */}

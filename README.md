@@ -1,10 +1,15 @@
 # 🚀 Tushar Washishtha | Portfolio (2025)
 
-![Portfolio Neural Toggle](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjE2NzB5cjF4bHh5bHh5bHh5bHh5bHh5bHh5bHh5bHh5bHh5/giphy.gif)
-
-> **"Operates at the intersection of structural engineering and creative logic."**
+> **"Operates at the intersection of performance engineering and creative UI design."**
 
 This is the source code for my personal portfolio website, built with **Next.js 14**, **TypeScript**, and **Three.js**. It features a unique "Neural Mode" toggle that completely transforms the aesthetic and physics engine of the site in real-time.
+
+---
+
+## 📄 Resume Highlight
+- Built a high-performance personal portfolio using Next.js 14, TypeScript, and Three.js
+- Implemented real-time UI mode switching with GPU-accelerated visual effects
+- Optimized rendering and animations for smooth performance across devices
 
 ---
 
@@ -38,8 +43,8 @@ A central switch that toggles between two distinct realities:
 First, clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/your-username/portfolio-2025.git
-cd portfolio-2025
+git clone https://github.com/tusharwashishtha2/portfolio-2025-secure.git
+cd portfolio-2025-secure
 npm install
 # or
 yarn install

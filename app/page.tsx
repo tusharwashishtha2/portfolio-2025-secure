@@ -143,7 +143,7 @@ export default function Portfolio() {
   }, [modalImg])
 
   return (
-    <div className={`relative min-h-screen font-sans transition-colors duration-1000 ${neuralMode ? "bg-black text-orange-50 selection:bg-orange-500/30" : "bg-white text-slate-900 selection:bg-blue-500/30"}`}>
+    <div className={`relative min-h-screen font-sans transition-colors duration-1000 ${neuralMode ? "bg-black text-orange-50 selection:bg-orange-500/30" : "text-slate-900 selection:bg-blue-500/30"}`}>
 
       {/* 0. THE SWITCH */}
       <NeuralToggle active={neuralMode} toggle={() => setNeuralMode(!neuralMode)} />
@@ -165,24 +165,15 @@ export default function Portfolio() {
       {/* 3. CONTENT DISTORTION ENGINE (Only in Light Mode) */}
       {!neuralMode && <LiquidSVG />}
 
-      {/* 3.5. WATER OVERLAY (Visible Ripples, No Text Warp) */}
-      {!neuralMode && (
-        <div
-          className="fixed inset-0 z-50 pointer-events-none opacity-40 mix-blend-multiply"
-          style={{
-            backgroundImage: "radial-gradient(circle at 50% 50%, rgba(0,0,0,0.1) 2px, transparent 2px)",
-            backgroundSize: "30px 30px",
-            filter: "url(#liquid-warp)",
-            willChange: "filter",
-            transform: "translate3d(0,0,0)",
-            backfaceVisibility: "hidden"
-          }}
-        />
-      )}
-
       {/* 4. MAIN CONTENT */}
       <main
         className="relative z-10 container mx-auto px-6 py-20 flex flex-col gap-32 overflow-x-hidden"
+        style={!neuralMode ? {
+          filter: "url(#liquid-warp)",
+          willChange: "filter",
+          transform: "translate3d(0,0,0)",
+          backfaceVisibility: "hidden"
+        } : {}}
       >
 
         {/* HERO */}

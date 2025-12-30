@@ -90,31 +90,30 @@ const renderFragmentShader = `
     // 3. WATER CAUSTICS (Deep Ocean Look)
     vec2 uv = vUv + distortion; // Distorted UV
     
-    // High frequency caustic pattern to avoid big grey blobs
+    // High frequency caustic pattern
     float pattern = sin(uv.x * 80.0) * cos(uv.y * 60.0) + sin(uv.x * 120.0 + uTime) * 0.5;
     
-    // Light Mode Water Colors (Silver/White)
-    vec3 col1 = vec3(0.98, 0.99, 1.0); // Clean White Base
-    vec3 col2 = vec3(0.70, 0.75, 0.85); // Cool Silver Shadow for Ripples
+    // Transparent Overlay Logic:
+    // We only want to draw the "ripples" (highlights/shadows), not the base white.
     
-    // Mix based on height and pattern
-    vec3 finalColor = mix(col1, col2, smoothstep(-0.2, 0.3, height + pattern * 0.1));
+    // Ripple Color (Silver/Blue-ish White)
+    vec3 rippleColor = vec3(0.6, 0.7, 0.85);
     
-    // 4. CHROMATIC ABERRATION (Simple RGB Split on high energy)
-    finalColor.r += height * 0.4;
-    finalColor.b -= height * 0.4;
+    // Alpha Mask:
+    // We calculate opacity based on the "energy" of the wave (height + pattern)
+    // Using absolute value to catch both crests and troughs
+    float waveEnergy = abs(height + pattern * 0.05);
     
-    // DEBUG: Show Red Trail if mouse near (Proves input works)
-    vec2 diff = vUv - uMouse;
-    vec2 aspect = vec2(512.0/512.0, 1.0); // Simplified format
-    float dist = length(diff);
-    if(dist < 0.02) {
-        finalColor += vec3(0.5, 0.0, 0.0); // Small red dot at cursor
-    }
+    // Smoothstep creates distinct ripple lines
+    float alpha = smoothstep(0.02, 0.15, waveEnergy);
+    
+    // 4. CHROMATIC ABERRATION (Subtle color fringe on strong ripples)
+    rippleColor.r += height * 0.2;
+    rippleColor.b += height * 0.5;
 
-    // DEBUG: FORCE PURE WHITE TO DIAGNOSE BLACK SCREEN ISSUE
-    // If screen is still black after this, the shader is not running or file is not updating.
-    gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+    // Output transparent pixel with ripple color
+    // Max opacity 0.4 ensures it's subtle and glass-like
+    gl_FragColor = vec4(rippleColor, alpha * 0.4);
   }
 `
 
@@ -172,7 +171,8 @@ function Simulation() {
             uScroll: { value: 0 }
         },
         vertexShader: renderVertexShader,
-        fragmentShader: renderFragmentShader
+        fragmentShader: renderFragmentShader,
+        transparent: true // Enable transparency in material
     }), [])
 
     // Ref to swap buffers
@@ -245,7 +245,7 @@ function Simulation() {
 
 export default function LiquidBackground() {
     return (
-        <div className="fixed inset-0 z-[-1] pointer-events-none bg-white">
+        <div className="fixed inset-0 z-[50] pointer-events-none">
             <Canvas
                 // ORTHOGRAPHIC CAMERA ensures the [-1, 1] plane covers the screen perfectly
                 camera={{ position: [0, 0, 1], zoom: 1 }}
@@ -253,7 +253,7 @@ export default function LiquidBackground() {
                 gl={{ antialias: false, alpha: true }}
                 dpr={[1, 2]} // Optimize for mobile
                 onCreated={({ gl }) => {
-                    gl.setClearColor('#ffffff') // Force WHITE background
+                    gl.setClearColor('#000000', 0) // Force TRANSPARENT background
                 }}
             >
                 <Simulation />

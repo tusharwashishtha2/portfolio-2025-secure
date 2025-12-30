@@ -143,7 +143,7 @@ export default function Portfolio() {
   }, [modalImg])
 
   return (
-    <div className={`relative min-h-screen font-sans transition-colors duration-1000 ${neuralMode ? "bg-black text-orange-50 selection:bg-orange-500/30" : "text-slate-900 selection:bg-blue-500/30"}`}>
+    <div className={`relative min-h-screen font-sans transition-colors duration-1000 ${neuralMode ? "bg-black text-orange-50 selection:bg-orange-500/30" : "bg-white text-slate-900 selection:bg-blue-500/30"}`}>
 
       {/* 0. THE SWITCH */}
       <NeuralToggle active={neuralMode} toggle={() => setNeuralMode(!neuralMode)} />

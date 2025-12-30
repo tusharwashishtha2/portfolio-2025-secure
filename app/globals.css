@@ -58,3 +58,13 @@ body {
     /* Make BG transparent so Liquid Canvas is visible */
   }
 }
+
+/* DESKTOP-ONLY LIQUID DISTORTION */
+@media (min-width: 1024px) {
+  .desktop-liquid {
+    filter: url(#liquid-warp);
+    will-change: filter;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+}

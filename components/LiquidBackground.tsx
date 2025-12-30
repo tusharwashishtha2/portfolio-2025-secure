@@ -96,24 +96,29 @@ const renderFragmentShader = `
     // Transparent Overlay Logic:
     // We only want to draw the "ripples" (highlights/shadows), not the base white.
     
-    // Ripple Color (Silver/Blue-ish White)
-    vec3 rippleColor = vec3(0.6, 0.7, 0.85);
+    // VISIBILITY FIX: 
+    // Since the background is WHITE, we need DARKER colors (Shadows) to be visible.
+    // Pure white/silver ripples are invisible on white paper!
     
-    // Alpha Mask:
-    // We calculate opacity based on the "energy" of the wave (height + pattern)
-    // Using absolute value to catch both crests and troughs
+    // Use a cool grey-blue for the water shadow
+    vec3 rippleColor = vec3(0.4, 0.5, 0.65); 
+    
+    // Alpha Mask calculation
+    // "waveEnergy" detects both peaks and troughs
     float waveEnergy = abs(height + pattern * 0.05);
     
-    // Smoothstep creates distinct ripple lines
-    float alpha = smoothstep(0.02, 0.15, waveEnergy);
+    // Sharper step for more defined edges
+    float alpha = smoothstep(0.01, 0.12, waveEnergy);
     
-    // 4. CHROMATIC ABERRATION (Subtle color fringe on strong ripples)
-    rippleColor.r += height * 0.2;
-    rippleColor.b += height * 0.5;
+    // BOOST OPACITY:
+    // Multiply alpha to make it clearly visible
+    float finalAlpha = alpha * 0.8; // Increased from 0.4
+    
+    // CHROMATIC ABERRATION (Subtle color fringe on strong ripples)
+    rippleColor.r -= height * 0.3; // Darker red shift
+    rippleColor.b += height * 0.3; // Blue shift
 
-    // Output transparent pixel with ripple color
-    // Max opacity 0.4 ensures it's subtle and glass-like
-    gl_FragColor = vec4(rippleColor, alpha * 0.4);
+    gl_FragColor = vec4(rippleColor, finalAlpha);
   }
 `
 

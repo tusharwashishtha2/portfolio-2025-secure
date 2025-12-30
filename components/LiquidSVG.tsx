@@ -20,15 +20,16 @@ export default function LiquidSVG() {
         // Mouse tracking (ONLY AFFECTS SCALE/INTENSITY NOW, NOT FREQUENCY)
         const onMouseMove = (e: MouseEvent) => {
             const speed = Math.abs(e.movementX) + Math.abs(e.movementY)
-            // Scale: 10 to 40
-            targetScale = 10 + Math.min(speed * 0.5, 30)
+            // Scale: MUCH STRONGER (50 to 150)
+            // This makes the "wave" clearly visible
+            targetScale = 50 + Math.min(speed * 2.0, 100)
         }
 
         // Touch tracking
         const onTouchMove = (e: TouchEvent) => {
             if (e.touches.length > 0) {
                 const speed = 15;
-                targetScale = 15 + Math.min(speed * 0.5, 30)
+                targetScale = 60 + Math.min(speed * 2.0, 100)
             }
         }
 
@@ -36,17 +37,24 @@ export default function LiquidSVG() {
         window.addEventListener("touchmove", onTouchMove, { passive: true })
 
         // Animation Loop
-        const tick = () => {
+        const tick = (t: DOMHighResTimeStamp) => {
             // Lerp to RESTING STATE
-            targetScale = targetScale * 0.9 + 2 * 0.1 // Decay to 2 (not 0)
+            targetScale = targetScale * 0.92 + 2 * 0.08 // Slower decay (0.9 -> 0.92)
 
             // Lerp current values
             currentScale += (targetScale - currentScale) * 0.1
 
-            // CONSTANT GENTLE FLOW (Time based only)
-            // Prevents massive spikes in noise generation complexity
-            const time = Date.now() * 0.0005
-            const flowFreq = 0.01 + Math.sin(time) * 0.002
+            // DYNAMIC FLOW (Agitated by movement)
+            // When scale is high (mouse moving), we "churn" the water faster
+            // We use a mutable time offset
+            // Use the rAF timestamp for smooth animation
+            const timeStr = t * 0.0005;
+
+            // If scale is high, the "wave" moves faster
+            const agitation = (currentScale / 100) * 0.01;
+
+            // We oscillate around 0.015 base freq
+            const flowFreq = 0.015 + Math.sin(timeStr) * (0.002 + agitation);
 
             if (turbRef.current && displRef.current) {
                 turbRef.current.setAttribute("baseFrequency", `${flowFreq} ${flowFreq}`)
@@ -54,10 +62,12 @@ export default function LiquidSVG() {
             }
             rafRef.current = requestAnimationFrame(tick)
         }
-        tick()
+        // Start loop
+        rafRef.current = requestAnimationFrame(tick)
 
         return () => {
             window.removeEventListener("mousemove", onMouseMove)
+            window.removeEventListener("touchmove", onTouchMove)
             cancelAnimationFrame(rafRef.current)
         }
     }, [])

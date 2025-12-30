@@ -58,15 +58,22 @@ export default function LiquidSVG() {
             currentFreq += (targetFreq - currentFreq) * 0.1
             currentScale += (targetScale - currentScale) * 0.1
 
-            // GENTLE FLOW (Not static, not fast)
-            const time = Date.now() * 0.0002
-            const flowFreq = currentFreq + Math.sin(time) * 0.001
+            // DYNAMIC FLOW (Alive, oscillating)
+            // We oscillate X and Y differently to create a "drifting" feel
+            const time = Date.now() * 0.001 // Faster time base
+            const osc = Math.sin(time) * 0.002 // Base oscillation
+
+            // Scale oscillation with intensity (more agitation = more ripple)
+            const rippleIntensity = currentFreq * 0.1
+            const flowFreqX = currentFreq + Math.sin(time) * rippleIntensity
+            const flowFreqY = currentFreq + Math.cos(time * 0.7) * rippleIntensity
 
             // CAP MAXIMUM SCALE 
-            const finalScale = Math.min(currentScale, 30)
+            const finalScale = Math.min(currentScale, 50) // Increased cap slightly for drama
 
             if (turbRef.current && displRef.current) {
-                turbRef.current.setAttribute("baseFrequency", `${flowFreq} ${flowFreq}`)
+                // Asymmetric frequency creates "flow" illusion
+                turbRef.current.setAttribute("baseFrequency", `${flowFreqX} ${flowFreqY}`)
                 displRef.current.setAttribute("scale", `${finalScale}`)
             }
             rafRef.current = requestAnimationFrame(tick)

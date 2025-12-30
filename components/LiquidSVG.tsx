@@ -39,22 +39,26 @@ export default function LiquidSVG() {
         // Animation Loop
         const tick = (t: DOMHighResTimeStamp) => {
             // Lerp to RESTING STATE
-            // VERY SLOW DECAY (Simulates heavy fluid momentum)
-            targetScale = targetScale * 0.95 + 0 * 0.05
+            // Faster decay (0.92) - settles nicely but not sluggishly
+            targetScale = targetScale * 0.92 + 2 * 0.08
 
-            // Lerp current values for smoothness
-            currentScale += (targetScale - currentScale) * 0.05
+            // Lerp current values - FASTER RESPONSE (0.1)
+            currentScale += (targetScale - currentScale) * 0.1
 
-            // CONSTANT SMOOTH FLOW (No agitation bubbles)
-            // Just a pure, rolling ocean swell
-            const timeStr = t * 0.0002; // Slow time
+            // FASTER, ENERGETIC FLOW
+            // "Drop in bucket" means the wave travels FAST
+            const timeStr = t * 0.001; // 5x faster than before
 
-            // Ultra Low Frequency = Large, smooth waves
-            // We use two different frequencies for X and Y to define the "water surface"
-            const freqX = 0.002 + Math.sin(timeStr) * 0.001;
-            const freqY = 0.002 + Math.cos(timeStr) * 0.001;
+            // Middle Frequency = Visible Ripples (not too big, not too small)
+            // Agitation: faster frequency when scale is high (creating smaller, faster ripples on interact)
+            const agitation = (currentScale / 100) * 0.005;
+
+            const freqX = 0.012 + Math.sin(timeStr) * (0.002 + agitation);
+            const freqY = 0.012 + Math.cos(timeStr) * (0.002 + agitation);
 
             if (turbRef.current && displRef.current) {
+                // Use TURBULENCE type for sharper water-like ridges? 
+                // No, sticking to fractalNoise for smooth warping, just faster.
                 turbRef.current.setAttribute("baseFrequency", `${freqX} ${freqY}`)
                 displRef.current.setAttribute("scale", `${currentScale}`)
             }

@@ -96,28 +96,23 @@ const renderFragmentShader = `
     // Transparent Overlay Logic:
     // We only want to draw the "ripples" (highlights/shadows), not the base white.
     
-    // VISIBILITY FIX: 
-    // Since the background is WHITE, we need DARKER colors (Shadows) to be visible.
-    // Pure white/silver ripples are invisible on white paper!
+    // VISIBILITY FIX 2.0:
+    // User says "Still not there".
+    // We are going FULL VISIBILITY with Electric Blue to confirm it works.
     
-    // Use a cool grey-blue for the water shadow
-    vec3 rippleColor = vec3(0.4, 0.5, 0.65); 
+    // Electric Blue Ripple
+    vec3 rippleColor = vec3(0.0, 0.5, 1.0); 
     
     // Alpha Mask calculation
-    // "waveEnergy" detects both peaks and troughs
+    // Detect wave energy
     float waveEnergy = abs(height + pattern * 0.05);
     
-    // Sharper step for more defined edges
-    float alpha = smoothstep(0.01, 0.12, waveEnergy);
+    // Lower threshold -> More sensitive to small movements
+    float alpha = smoothstep(0.005, 0.15, waveEnergy);
     
-    // BOOST OPACITY:
-    // Multiply alpha to make it clearly visible
-    float finalAlpha = alpha * 0.8; // Increased from 0.4
+    // HIGH OPACITY
+    float finalAlpha = alpha * 0.9; 
     
-    // CHROMATIC ABERRATION (Subtle color fringe on strong ripples)
-    rippleColor.r -= height * 0.3; // Darker red shift
-    rippleColor.b += height * 0.3; // Blue shift
-
     gl_FragColor = vec4(rippleColor, finalAlpha);
   }
 `
@@ -128,8 +123,8 @@ function Simulation() {
     // Create Ping-Pong Buffers
     const [currentBuffer, previousBuffer] = useMemo(() => {
         const options = {
-            type: THREE.FloatType, // High precision
-            format: THREE.RedFormat, // Only need 1 channel (height)
+            type: THREE.HalfFloatType, // COMPATIBILITY FIX: HalfFloat works on more devices than Float
+            format: THREE.RedFormat,
             minFilter: THREE.LinearFilter,
             magFilter: THREE.LinearFilter,
             stencilBuffer: false,

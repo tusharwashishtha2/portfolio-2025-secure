@@ -57,7 +57,7 @@ const simFragmentShader = `
     
     // Wider, stronger brush
     if (dist < 0.1) {
-       float force = 0.1 * (1.0 - dist / 0.1);
+       float force = 0.3 * (1.0 - dist / 0.1); // TRIPLED FORCE (was 0.1)
        next += force;
     }
 
@@ -93,28 +93,25 @@ const renderFragmentShader = `
     // High frequency caustic pattern to avoid big grey blobs
     float pattern = sin(uv.x * 80.0) * cos(uv.y * 60.0) + sin(uv.x * 120.0 + uTime) * 0.5;
     
-    // Light Mode Water Colors (Silver/White)
-    vec3 col1 = vec3(0.98, 0.99, 1.0); // Clean White Base
-    vec3 col2 = vec3(0.70, 0.75, 0.85); // Cool Silver Shadow for Ripples
+    // Light Mode Water Colors (Ethereal Silver-Blue)
+    vec3 col1 = vec3(0.98, 0.99, 1.0); // Pure White Base
+    vec3 col2 = vec3(0.55, 0.65, 0.85); // DEEP Silver-Blue Shadow (High Contrast)
     
     // Mix based on height and pattern
-    vec3 finalColor = mix(col1, col2, smoothstep(-0.2, 0.3, height + pattern * 0.1));
+    // Sharpen the smoothstep for crisper ripples
+    vec3 finalColor = mix(col1, col2, smoothstep(-0.1, 0.2, height + pattern * 0.1));
     
-    // 4. CHROMATIC ABERRATION (Simple RGB Split on high energy)
-    finalColor.r += height * 0.4;
-    finalColor.b -= height * 0.4;
+    // 4. CHROMATIC ABERRATION (Subtle High-End look)
+    finalColor.r += height * 0.2;
+    finalColor.b -= height * 0.2;
     
     // DEBUG: Show Red Trail if mouse near (Proves input works)
     vec2 diff = vUv - uMouse;
     vec2 aspect = vec2(512.0/512.0, 1.0); // Simplified format
     float dist = length(diff);
-    if(dist < 0.02) {
-        finalColor += vec3(0.5, 0.0, 0.0); // Small red dot at cursor
-    }
-
-    // DEBUG: FORCE PURE WHITE TO DIAGNOSE BLACK SCREEN ISSUE
-    // If screen is still black after this, the shader is not running or file is not updating.
-    gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+    // Removed debug dot
+    
+    gl_FragColor = vec4(finalColor, 1.0);
   }
 `
 
@@ -146,8 +143,8 @@ function Simulation() {
                 uCurrent: { value: null },
                 uPrevious: { value: null },
                 uMouse: { value: new THREE.Vector2(0, 0) },
-                uMouseSize: { value: 0.1 }, // Bigger brush
-                uViscosity: { value: 0.96 }, // Oily decay
+                uMouseSize: { value: 0.2 }, // BIGGER BRUSH (Easier to hit on mobile)
+                uViscosity: { value: 0.97 }, // Longer trails
                 uResolution: { value: new THREE.Vector2(512, 512) },
                 uTime: { value: 0 }
             },

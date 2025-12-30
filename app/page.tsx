@@ -165,6 +165,21 @@ export default function Portfolio() {
       {/* 3. CONTENT DISTORTION ENGINE (Only in Light Mode) */}
       {!neuralMode && <LiquidSVG />}
 
+      {/* 3.5. WATER OVERLAY (Visible Ripples, No Text Warp) */}
+      {!neuralMode && (
+        <div
+          className="fixed inset-0 z-50 pointer-events-none opacity-40 mix-blend-multiply"
+          style={{
+            backgroundImage: "radial-gradient(circle at 50% 50%, rgba(0,0,0,0.1) 2px, transparent 2px)",
+            backgroundSize: "30px 30px",
+            filter: "url(#liquid-warp)",
+            willChange: "filter",
+            transform: "translate3d(0,0,0)",
+            backfaceVisibility: "hidden"
+          }}
+        />
+      )}
+
       {/* 4. MAIN CONTENT */}
       <main
         className="relative z-10 container mx-auto px-6 py-20 flex flex-col gap-32 overflow-x-hidden"

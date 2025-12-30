@@ -39,25 +39,23 @@ export default function LiquidSVG() {
         // Animation Loop
         const tick = (t: DOMHighResTimeStamp) => {
             // Lerp to RESTING STATE
-            targetScale = targetScale * 0.92 + 2 * 0.08 // Slower decay (0.9 -> 0.92)
+            // VERY SLOW DECAY (Simulates heavy fluid momentum)
+            targetScale = targetScale * 0.95 + 0 * 0.05
 
-            // Lerp current values
-            currentScale += (targetScale - currentScale) * 0.1
+            // Lerp current values for smoothness
+            currentScale += (targetScale - currentScale) * 0.05
 
-            // DYNAMIC FLOW (Agitated by movement)
-            // When scale is high (mouse moving), we "churn" the water faster
-            // We use a mutable time offset
-            // Use the rAF timestamp for smooth animation
-            const timeStr = t * 0.0005;
+            // CONSTANT SMOOTH FLOW (No agitation bubbles)
+            // Just a pure, rolling ocean swell
+            const timeStr = t * 0.0002; // Slow time
 
-            // If scale is high, the "wave" moves faster
-            const agitation = (currentScale / 100) * 0.01;
-
-            // We oscillate around 0.015 base freq
-            const flowFreq = 0.015 + Math.sin(timeStr) * (0.002 + agitation);
+            // Ultra Low Frequency = Large, smooth waves
+            // We use two different frequencies for X and Y to define the "water surface"
+            const freqX = 0.002 + Math.sin(timeStr) * 0.001;
+            const freqY = 0.002 + Math.cos(timeStr) * 0.001;
 
             if (turbRef.current && displRef.current) {
-                turbRef.current.setAttribute("baseFrequency", `${flowFreq} ${flowFreq}`)
+                turbRef.current.setAttribute("baseFrequency", `${freqX} ${freqY}`)
                 displRef.current.setAttribute("scale", `${currentScale}`)
             }
             rafRef.current = requestAnimationFrame(tick)

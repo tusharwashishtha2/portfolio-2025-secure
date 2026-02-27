@@ -14,26 +14,20 @@ const NeuralNode = ({ children, delay = 0, className = "" }: { children: React.R
         viewport={{ once: true, margin: "-50px" }}
         animate={{
             y: [0, -10, 0],
-            scale: [1, 1.02, 1],
-            boxShadow: [
-                "0 0 15px rgba(255,165,255,0.05)",
-                "0 0 25px rgba(255,165,255,0.15)",
-                "0 0 15px rgba(255,165,255,0.05)"
-            ]
+            scale: [1, 1.01, 1]
         }}
         // "Breathing" animation loop
         //@ts-ignore - framer motion transition types complain about repeatType but it works
         transition={{
             duration: 1, delay,
-            y: { repeat: Infinity, duration: 4 + Math.random() * 2, ease: "easeInOut" },
-            scale: { repeat: Infinity, duration: 5 + Math.random() * 2, ease: "easeInOut" },
-            boxShadow: { repeat: Infinity, duration: 3 + Math.random() * 2, ease: "easeInOut" }
+            y: { repeat: Infinity, duration: 6 + Math.random() * 2, ease: "easeInOut" },
+            scale: { repeat: Infinity, duration: 8 + Math.random() * 2, ease: "easeInOut" }
         }}
         className={`
-      bg-black/40 backdrop-blur-2xl border border-[#3b1252]/50 
+      bg-black/60 backdrop-blur border border-[#3b1252]/50 
       rounded-[2rem] p-8 text-[#e2d5ec] 
       hover:bg-[#1a0524]/60 hover:border-[#9d4edd]/50 hover:shadow-[0_0_40px_rgba(157,78,221,0.2)]
-      transition-colors duration-700
+      transition-all duration-700
       ${className}
     `}
     >
@@ -138,9 +132,8 @@ export default function NeuralThemeContent() {
                                 initial={{ opacity: 0, scale: 0 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true, margin: "-100px" }}
-                                animate={{ y: [0, (i % 2 === 0 ? -15 : 15), 0] }}
-                                // @ts-ignore
-                                transition={{ duration: 0.8, delay: i * 0.05, y: { repeat: Infinity, duration: 3 + Math.random() * 2, ease: "easeInOut" } }}
+                                whileHover={{ scale: 1.05, y: -5 }}
+                                transition={{ duration: 0.8, delay: i * 0.05 }}
                                 className="group relative cursor-pointer"
                             >
                                 <div className="absolute inset-0 bg-[#9d4edd] blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 rounded-full"></div>

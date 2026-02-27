@@ -154,7 +154,7 @@ export default function ProofThemeContent() {
                         STATE 01 // VERIFIED IDENTITY
                     </h2>
 
-                    <div className="text-lg md:text-2xl leading-[2] tracking-wide text-[#aabdb1] space-y-12 font-sans font-light">
+                    <div className="text-lg md:text-2xl leading-[2] tracking-wide text-[#aabdb1] space-y-12 font-sans font-light text-justify">
                         <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}>
                             I operate as a bridge between pure architectural logic and human-facing interfaces. My core foundation is built upon deep <strong className="text-white font-normal uppercase tracking-widest">Python</strong> development expertise, enabling me to engineer backend pipelines, orchestrate data streams, and build resilient logic engines.
                         </motion.p>
@@ -285,7 +285,7 @@ export default function ProofThemeContent() {
                                     </div>
                                 </div>
 
-                                <div className="space-y-8 text-lg text-[#aabdb1] leading-[1.8] font-sans font-light">
+                                <div className="space-y-8 text-lg text-[#aabdb1] leading-[1.8] font-sans font-light text-justify">
                                     <div>
                                         <h4 className="text-[#2bff6b] font-mono text-sm tracking-[0.2em] mb-3 uppercase border-b border-[#2bff6b]/20 pb-2">Analysis // The Problem</h4>
                                         <p>Identifying bird species robustly in the wild is traditionally bottlenecked by uni-modal constraints. Classifying purely by image fails in dense foliage, while purely audio-based models struggle with environmental noise over-saturation.</p>
@@ -339,7 +339,7 @@ export default function ProofThemeContent() {
                                     </div>
                                 </div>
 
-                                <div className="space-y-8 text-lg text-[#aabdb1] leading-[1.8] font-sans font-light">
+                                <div className="space-y-8 text-lg text-[#aabdb1] leading-[1.8] font-sans font-light text-justify">
                                     <div>
                                         <h4 className="text-[#2bff6b] font-mono text-sm tracking-[0.2em] mb-3 uppercase border-b border-[#2bff6b]/20 pb-2">Constraints // Hardware Ceiling</h4>
                                         <p>Running state-of-the-art latent text-to-image diffusion models (SDXL) locally requires immense VRAM, bottlenecking development on standard hardware constraints.</p>
@@ -390,7 +390,7 @@ export default function ProofThemeContent() {
                                     </div>
                                 </div>
 
-                                <div className="space-y-8 text-lg text-[#aabdb1] leading-[1.8] font-sans font-light">
+                                <div className="space-y-8 text-lg text-[#aabdb1] leading-[1.8] font-sans font-light text-justify">
                                     <div>
                                         <h4 className="text-[#2bff6b] font-mono text-sm tracking-[0.2em] mb-3 uppercase border-b border-[#2bff6b]/20 pb-2">Requirement // Digital Sanctuary</h4>
                                         <p>A specialized architectural mandate requiring a full-stack e-commerce deployment capable of secure transactions while maintaining a deeply specific &quot;Temple Corridor&quot; visual vernacular.</p>
@@ -436,7 +436,7 @@ export default function ProofThemeContent() {
                                     </div>
                                 </div>
 
-                                <div className="space-y-8 text-lg text-[#aabdb1] leading-[1.8] font-sans font-light">
+                                <div className="space-y-8 text-lg text-[#aabdb1] leading-[1.8] font-sans font-light text-justify">
                                     <div>
                                         <h4 className="text-[#2bff6b] font-mono text-sm tracking-[0.2em] mb-3 uppercase border-b border-[#2bff6b]/20 pb-2">Genesis // Foundation</h4>
                                         <p>Before adopting high-level abstraction frameworks like React or Next.js, it is critical to interface directly with the basic constraints of the browser engine.</p>

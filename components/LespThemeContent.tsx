@@ -42,13 +42,13 @@ export default function LespThemeContent() {
         <main className="relative z-10 w-full min-h-screen text-[#a3a3a3] font-mono selection:bg-white/20">
 
             {/* SYSTEM HEADER */}
-            <header className="fixed top-0 left-0 w-full bg-[#020202]/90 border-b border-white/10 backdrop-blur-md z-40 p-2 md:p-4 flex justify-between items-center text-[10px] md:text-xs pr-[120px] md:pr-[280px]">
+            <header className="fixed top-0 left-0 w-full bg-[#020202]/90 border-b border-white/10 backdrop-blur-md z-40 p-2 md:p-4 flex flex-col md:flex-row justify-center md:justify-between items-start md:items-center text-[9px] md:text-xs pr-[150px] md:pr-[280px] gap-1 md:gap-0">
                 <div className="flex items-center gap-3">
-                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_#22c55e]"></span>
+                    <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_#22c55e]"></span>
                     <span className="text-white tracking-widest hidden md:inline">SYSTEM STATUS: ACTIVE // ALL MODULES RUNNING</span>
                     <span className="text-white tracking-widest md:hidden">SYS_ACTIVE</span>
                 </div>
-                <div className="text-[#888] flex items-center gap-4">
+                <div className="text-[#888] flex items-center gap-2 md:gap-4">
                     <span>UPTIME: {timeDelay}s</span>
                     <span className="hidden md:inline">MEM: {(24 + Math.sin(timeDelay) * 2).toFixed(1)}GB / 32GB</span>
                     <span>CPU: {(12 + Math.cos(timeDelay) * 4).toFixed(0)}%</span>

@@ -143,7 +143,7 @@ const THEMES: Record<string, any> = {
     projectTech: "text-[#06b6d4]"
   },
   proof: {
-    name: "Terminal lines",
+    name: "Diagnostics",
     bg: "bg-[#030504] text-[#8fa094] selection:bg-[#2bff6b]/30",
     primaryText: "text-[#e1f0e5]",
     border: "border-[#2bff6b]/20",
@@ -165,7 +165,7 @@ const THEMES: Record<string, any> = {
   },
 
   lesp: {
-    name: "System",
+    name: "Scanning lines",
     bg: "bg-[#020202] text-[#a3a3a3] selection:bg-white/20",
     primaryText: "text-white",
     border: "border-white/10",
@@ -186,7 +186,7 @@ const THEMES: Record<string, any> = {
     projectTech: "text-white"
   },
   alive: {
-    name: "Scanning line",
+    name: "System",
     bg: "bg-black text-cyan-50 selection:bg-cyan-500/30"
   },
   paper: {

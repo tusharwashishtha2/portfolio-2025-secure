@@ -63,8 +63,8 @@ export default function ProofThemeContent() {
             <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#030504] text-[#2bff6b] font-mono p-6">
                 <div className="w-full max-w-lg">
                     <div className="flex items-center gap-4 mb-10 opacity-50">
-                        <Terminal size={24} />
-                        <span className="tracking-[0.3em]">DIAGNOSTIC_MODE_AUTHORIZATION</span>
+                        <Terminal size={24} className="shrink-0" />
+                        <span className="tracking-[0.3em] text-[10px] sm:text-xs md:text-sm break-all">DIAGNOSTIC_MODE_AUTHORIZATION</span>
                     </div>
                     <div className="space-y-4 text-sm md:text-base tracking-widest">
                         {bootPhase >= 0 && <p className="opacity-80">&gt;<TerminalText text=" INITIALIZING PROOF ENGINE..." speed={30} /></p>}

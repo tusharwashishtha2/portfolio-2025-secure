@@ -12,7 +12,6 @@ const NeuralNode = ({ children, delay = 0, className = "" }: { children: React.R
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 1, delay }}
         animate={{
             y: [0, -10, 0],
             scale: [1, 1.02, 1],
@@ -25,6 +24,7 @@ const NeuralNode = ({ children, delay = 0, className = "" }: { children: React.R
         // "Breathing" animation loop
         //@ts-ignore - framer motion transition types complain about repeatType but it works
         transition={{
+            duration: 1, delay,
             y: { repeat: Infinity, duration: 4 + Math.random() * 2, ease: "easeInOut" },
             scale: { repeat: Infinity, duration: 5 + Math.random() * 2, ease: "easeInOut" },
             boxShadow: { repeat: Infinity, duration: 3 + Math.random() * 2, ease: "easeInOut" }
@@ -138,10 +138,9 @@ export default function NeuralThemeContent() {
                                 initial={{ opacity: 0, scale: 0 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 0.8, delay: i * 0.05 }}
                                 animate={{ y: [0, (i % 2 === 0 ? -15 : 15), 0] }}
                                 // @ts-ignore
-                                transition={{ y: { repeat: Infinity, duration: 3 + Math.random() * 2, ease: "easeInOut" } }}
+                                transition={{ duration: 0.8, delay: i * 0.05, y: { repeat: Infinity, duration: 3 + Math.random() * 2, ease: "easeInOut" } }}
                                 className="group relative cursor-pointer"
                             >
                                 <div className="absolute inset-0 bg-[#9d4edd] blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 rounded-full"></div>

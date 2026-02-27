@@ -1,0 +1,18 @@
+﻿
+C:\Users\91700\OneDrive\Documents\PORTFOLIO\components\HiddenThemeContent.tsx
+  90:29   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  90:218  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\91700\OneDrive\Documents\PORTFOLIO\components\NeuralThemeContent.tsx
+   27:9   error  No duplicate props allowed  react/jsx-no-duplicate-props
+  144:33  error  No duplicate props allowed  react/jsx-no-duplicate-props
+
+C:\Users\91700\OneDrive\Documents\PORTFOLIO\components\PaperThemeContent.tsx
+  253:84  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\91700\OneDrive\Documents\PORTFOLIO\components\ProofThemeContent.tsx
+  396:192  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  396:208  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+Γ£û 7 problems (7 errors, 0 warnings)
+

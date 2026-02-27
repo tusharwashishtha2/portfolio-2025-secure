@@ -393,7 +393,7 @@ export default function ProofThemeContent() {
                                 <div className="space-y-8 text-lg text-[#aabdb1] leading-[1.8] font-sans font-light">
                                     <div>
                                         <h4 className="text-[#2bff6b] font-mono text-sm tracking-[0.2em] mb-3 uppercase border-b border-[#2bff6b]/20 pb-2">Requirement // Digital Sanctuary</h4>
-                                        <p>A specialized architectural mandate requiring a full-stack e-commerce deployment capable of secure transactions while maintaining a deeply specific "Temple Corridor" visual vernacular.</p>
+                                        <p>A specialized architectural mandate requiring a full-stack e-commerce deployment capable of secure transactions while maintaining a deeply specific &quot;Temple Corridor&quot; visual vernacular.</p>
                                     </div>
                                     <div>
                                         <h4 className="text-[#2bff6b] font-mono text-sm tracking-[0.2em] mb-3 uppercase border-b border-[#2bff6b]/20 pb-2">Architecture // State & Data</h4>

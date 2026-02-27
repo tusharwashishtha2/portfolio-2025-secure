@@ -87,7 +87,7 @@ export default function HiddenThemeContent() {
                 <section className="flex justify-center items-center py-6 md:py-12">
                     <ProximityReveal hitAreaPadding="p-4 md:p-24" className="max-w-4xl w-full">
                         <div className="text-2xl md:text-5xl leading-relaxed text-justify font-light italic text-slate-200">
-                            "I specialize in building projects using modern AI-assisted development, focusing on problem-solving, debugging, and delivering working solutions rather than just writing code line-by-line."
+                            &quot;I specialize in building projects using modern AI-assisted development, focusing on problem-solving, debugging, and delivering working solutions rather than just writing code line-by-line.&quot;
                         </div>
                     </ProximityReveal>
                 </section>

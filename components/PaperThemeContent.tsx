@@ -250,7 +250,7 @@ export default function PaperThemeContent() {
                 {/* CONTACT SECTION */}
                 <section className="flex justify-center pb-32">
                     <InkBox className="max-w-xl w-full text-center bg-white/30 p-12">
-                        <h2 className="text-5xl font-bold text-slate-900 mb-12">Let's Collaborate</h2>
+                        <h2 className="text-5xl font-bold text-slate-900 mb-12">Let&apos;s Collaborate</h2>
 
                         <div className="space-y-6 text-3xl text-slate-800 flex flex-col items-center">
                             <a href="mailto:tusharwashishtha2@gmail.com" className="flex items-center gap-4 hover:text-slate-900 ink-hover transition-all">

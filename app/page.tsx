@@ -143,7 +143,7 @@ const THEMES: Record<string, any> = {
     projectTech: "text-[#06b6d4]"
   },
   proof: {
-    name: "Diagnostics",
+    name: "Hacker Mode",
     bg: "bg-[#030504] text-[#8fa094] selection:bg-[#2bff6b]/30",
     primaryText: "text-[#e1f0e5]",
     border: "border-[#2bff6b]/20",

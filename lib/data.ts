@@ -18,16 +18,6 @@ export const EDUCATION = [
         title: "Bachelor of Technology (IT)",
         meta: "Malwa Institute of Technology // CGPA 6.70",
         desc: "Focused on Data Structures, Algorithms, and System Design. Built a strong theoretical foundation in computer science principles."
-    },
-    {
-        title: "Higher Secondary (12th Science)",
-        meta: "Motherland School // 67%",
-        desc: "Specialized in Physics and Mathematics, developing analytical problem-solving skills."
-    },
-    {
-        title: "Secondary School (10th)",
-        meta: "Little Wonders Convent // 65%",
-        desc: "Early foundations in logic and general sciences."
     }
 ];
 
@@ -71,6 +61,7 @@ export const PROJECTS = [
 ];
 
 export const CERTS = [
+    { img: "/assets/cert_oneroadmap.png", label: "FRONTEND SKILL CERT" },
     { img: "/assets/cert_aws.png", label: "AWS CERTIFIED" },
     { img: "/assets/cert_python_skillup.png", label: "PYTHON SKILLUP" },
     { img: "/assets/cert_scaler.png", label: "SCALER ACADEMY" },

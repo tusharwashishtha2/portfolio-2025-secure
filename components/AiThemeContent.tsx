@@ -134,7 +134,7 @@ export default function AiThemeContent() {
                                 <span className="text-sm tracking-widest uppercase font-medium text-white relative z-10">Launch Projects</span>
                             </button>
 
-                            <a href="/assets/Tushar_Washishtha_Resume_Fixed.pdf" download="Tushar_Washishtha_Resume_Fixed.pdf" onClick={handleResumeDownload} className="group relative px-6 py-4 bg-[#06b6d4]/10 border border-[#06b6d4]/30 rounded-lg hover:bg-[#06b6d4]/20 transition-all flex items-center justify-center gap-3 overflow-hidden">
+                            <a href="/assets/Tushar_Washishtha_Resume_2026.pdf" download="Tushar_Washishtha_Resume_2026.pdf" onClick={handleResumeDownload} className="group relative px-6 py-4 bg-[#06b6d4]/10 border border-[#06b6d4]/30 rounded-lg hover:bg-[#06b6d4]/20 transition-all flex items-center justify-center gap-3 overflow-hidden">
                                 <span className="absolute left-0 w-2 h-full bg-[#06b6d4] scale-y-0 group-hover:scale-y-100 origin-bottom transition-transform duration-300"></span>
                                 <Download size={18} className="text-[#06b6d4]" />
                                 <span className="text-white text-xs font-mono tracking-[0.2em] relative z-10">DOWNLOAD RESUME INSTRUCTION SET</span>

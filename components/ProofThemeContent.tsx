@@ -21,9 +21,7 @@ const PROOF_SKILLS = [
 ]
 
 const PROOF_EDU = [
-    { school: "Malwa Institute of Technology", degree: "Bachelor of Information Technology", score: "CGPA 6.70" },
-    { school: "Motherland School", degree: "12th Science", score: "67%" },
-    { school: "Little Wonders Convent School", degree: "10th", score: "65%" }
+    { school: "Malwa Institute of Technology", degree: "Bachelor of Information Technology", score: "CGPA 6.70" }
 ]
 
 // Animated Typewriter
@@ -115,8 +113,8 @@ export default function ProofThemeContent() {
                     </p>
 
                     <div className="flex flex-wrap justify-center gap-4 mt-8 opacity-80">
-                        <a href="/assets/Tushar_Washishtha_Resume_Fixed.pdf" download="Tushar_Washishtha_Resume_Fixed.pdf" onClick={handleResumeDownload} className="flex items-center gap-3 px-6 py-3 border border-[#2bff6b]/30 bg-[#2bff6b]/5 hover:bg-[#2bff6b]/20 hover:border-[#2bff6b] text-[#2bff6b] text-xs tracking-widest uppercase transition-all duration-300">
-                            <Download size={14} /> EXTRACT_RESUME
+                        <a href="/assets/Tushar_Washishtha_Resume_2026.pdf" download="Tushar_Washishtha_Resume_2026.pdf" onClick={handleResumeDownload} className="flex items-center gap-3 px-6 py-3 border border-[#2bff6b]/30 bg-[#2bff6b]/5 hover:bg-[#2bff6b]/20 hover:border-[#2bff6b] text-[#2bff6b] text-xs tracking-widest uppercase transition-all duration-300">
+                            <Download size={14} /> DOWNLOAD ARCHIVESUME
                         </a>
                         <a href="https://github.com/TUSHARWASHISHTHA" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-6 py-3 border border-[#2bff6b]/30 bg-[#2bff6b]/5 hover:bg-[#2bff6b]/20 hover:border-[#2bff6b] text-[#2bff6b] text-xs tracking-widest uppercase transition-all duration-300">
                             <Github size={14} /> GITHUB_UPLINK

@@ -21,9 +21,7 @@ const LESP_SKILLS = [
 ]
 
 const LESP_EDU = [
-    { school: "Malwa Institute of Technology", degree: "Bachelor of Information Technology", score: "CGPA: 6.70", status: "COMPILED" },
-    { school: "Motherland School", degree: "12th Science", score: "Percentage: 67%", status: "VERIFIED" },
-    { school: "Little Wonders Convent School", degree: "10th", score: "Percentage: 65%", status: "VERIFIED" }
+    { school: "Malwa Institute of Technology", degree: "Bachelor of Information Technology", score: "CGPA: 6.70", status: "COMPILED" }
 ]
 
 export default function LespThemeContent() {

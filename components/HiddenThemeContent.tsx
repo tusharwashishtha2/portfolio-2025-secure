@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { X, ExternalLink, Download } from "lucide-react"
+import { X, ExternalLink, Download, Eye } from "lucide-react"
 import { SKILLS, EDUCATION, PROJECTS, CERTS } from "@/lib/data"
 import { handleResumeDownload } from "@/lib/utils"
 
@@ -156,12 +156,20 @@ export default function HiddenThemeContent() {
                         {PROJECTS.map((proj, i) => (
                             <ProximityReveal key={i} hitAreaPadding="p-8 md:p-12 -m-8 md:-m-12">
                                 <div
-                                    className="cursor-pointer group flex flex-col gap-6"
-                                    onClick={() => setModalProject(proj)}
+                                    className="group flex flex-col gap-6"
+                                    onClick={() => { if (typeof window !== 'undefined' && window.innerWidth >= 768) setModalProject(proj) }}
                                 >
-                                    <div className="aspect-video bg-[#050505] border border-white/5 overflow-hidden relative grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000">
+                                    <div className="aspect-video bg-[#050505] border border-white/5 overflow-hidden relative grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 md:cursor-pointer">
                                         <div className="absolute inset-0 bg-black/50 group-hover:bg-transparent transition-colors duration-1000 z-10" />
                                         <img src={proj.img1 || proj.images?.[0]} alt={proj.title} className="w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-[2s] ease-out" />
+                                        <div className="absolute inset-0 flex items-center justify-center md:hidden z-20 pointer-events-none">
+                                            <button
+                                                className="pointer-events-auto p-4 bg-black/60 border border-white/20 rounded-full text-white backdrop-blur-md"
+                                                onClick={(e) => { e.stopPropagation(); setModalProject(proj); }}
+                                            >
+                                                <Eye size={24} />
+                                            </button>
+                                        </div>
                                     </div>
                                     <div>
                                         <h3 className="text-3xl font-light text-white mb-3 tracking-wide">{proj.title}</h3>
@@ -184,12 +192,20 @@ export default function HiddenThemeContent() {
                         {CERTS.map((cert, i) => (
                             <ProximityReveal key={i} hitAreaPadding="p-6">
                                 <div
-                                    className="cursor-pointer group flex flex-col items-center gap-4"
-                                    onClick={() => setModalImg(cert.img)}
+                                    className="group flex flex-col items-center gap-4 relative"
+                                    onClick={() => { if (typeof window !== 'undefined' && window.innerWidth >= 768) setModalImg(cert.img) }}
                                 >
-                                    <div className="w-full aspect-[4/3] bg-[#050505] border border-white/10 overflow-hidden relative">
+                                    <div className="w-full aspect-[4/3] bg-[#050505] border border-white/10 overflow-hidden relative md:cursor-pointer">
                                         <div className="absolute inset-0 bg-black/60 group-hover:bg-transparent transition-colors duration-700 z-10 mix-blend-multiply" />
                                         <img src={cert.img} alt={cert.label} className="w-full h-full object-cover filter brightness-50 group-hover:brightness-100 transition-all duration-1000" />
+                                        <div className="absolute inset-0 flex items-center justify-center md:hidden z-20 pointer-events-none">
+                                            <button
+                                                className="pointer-events-auto p-3 bg-black/60 border border-white/20 rounded-full text-white backdrop-blur-md"
+                                                onClick={(e) => { e.stopPropagation(); setModalImg(cert.img); }}
+                                            >
+                                                <Eye size={20} />
+                                            </button>
+                                        </div>
                                     </div>
                                     <div className="text-xs text-center text-slate-500 tracking-widest uppercase">{cert.label}</div>
                                 </div>
@@ -244,7 +260,7 @@ export default function HiddenThemeContent() {
                     >
                         <button
                             onClick={() => setModalProject(null)}
-                            className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors z-50 p-4"
+                            className="absolute top-4 left-4 md:top-8 md:bottom-auto md:right-8 md:left-auto text-white/50 hover:text-white transition-colors z-50 p-4"
                         >
                             <X size={32} />
                         </button>
@@ -297,7 +313,10 @@ export default function HiddenThemeContent() {
                         className="fixed inset-0 z-[150] flex items-center justify-center bg-black/95 backdrop-blur-md p-8"
                         onClick={() => setModalImg(null)}
                     >
-                        <button className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors bg-white/5 border border-white/10 p-4">
+                        <button
+                            className="absolute top-4 left-4 md:top-8 md:bottom-auto md:right-8 md:left-auto text-white/50 hover:text-white transition-colors bg-white/5 border border-white/10 p-4 z-50 pointer-events-auto"
+                            onClick={(e) => { e.stopPropagation(); setModalImg(null); }}
+                        >
                             <X size={24} />
                         </button>
                         <motion.img

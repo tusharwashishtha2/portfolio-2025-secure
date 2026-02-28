@@ -210,9 +210,7 @@ export default function AiThemeContent() {
                     <GlassModule title="MODULE 03A // EDUCATION STACK" delay={0.1}>
                         <div className="space-y-6 relative border-l border-white/10 pl-6">
                             {[
-                                { title: "Bachelors in Information Technology", meta: "Malwa Institute of Technology, Indore", grade: "CGPA: 6.70" },
-                                { title: "12th Science", meta: "Motherland School, Indore", grade: "67%" },
-                                { title: "10th", meta: "Little Wonders Convent School, Indore", grade: "65%" },
+                                { title: "Bachelors in Information Technology", meta: "Malwa Institute of Technology, Indore", grade: "CGPA: 6.70" }
                             ].map((ed, i) => (
                                 <div key={i} className="relative group">
                                     <div className="absolute -left-[29px] top-1.5 w-2 h-2 rounded-full bg-slate-700 group-hover:bg-[#06b6d4] transition-colors shadow-[0_0_10px_rgba(6,182,212,0)] group-hover:shadow-[0_0_10px_rgba(6,182,212,0.8)]"></div>

@@ -385,7 +385,7 @@ export default function GodThemeContent() {
                                 ))}
                             </div>
 
-                            <h3 className="text-xs font-mono tracking-widest text-slate-500 mb-4 uppercase opacity-60">Auxiliary Credentials</h3>
+                            <h3 className="text-xs font-mono tracking-widest text-slate-500 mb-4 uppercase opacity-60">Secondary Credentials</h3>
                             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 opacity-70">
                                 {CERTS.filter(c => !c.featured).map((cert, i) => (
                                     <div

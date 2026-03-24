@@ -508,17 +508,36 @@ export default function Portfolio() {
             {/* CERTS */}
             <section>
               <SectionTitle number="05" title="CERTIFICATIONS" themeConfig={themeConfig} />
-              <div className="grid grid-cols-2 lg:grid-cols-5 gap-6">
-                {CERTS.map((cert, i) => (
+              
+              <h3 className={`text-xl font-bold mb-6 ${themeConfig?.primaryText || "text-slate-900"}`}>Featured Credentials</h3>
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                {CERTS.filter(c => c.featured).map((cert, i) => (
                   <motion.div
-                    key={i}
+                    key={`feat-${i}`}
                     whileHover={{ y: -5 }}
                     className={`relative aspect-[4/3] rounded-xl overflow-hidden cursor-pointer border shadow-sm hover:shadow-md group ${themeConfig?.certCard || "border-slate-200"}`}
                     onClick={() => setModalImg(cert.img)}
                   >
                     <img src={cert.img} alt={cert.label} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="text-xs font-bold tracking-widest text-white">{cert.label}</span>
+                      <span className="text-xs font-bold tracking-widest text-white text-center px-2">{cert.label}</span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <h3 className={`text-lg font-medium mb-6 ${themeConfig?.metaText || "text-slate-500"}`}>Secondary Credentials</h3>
+              <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 opacity-80">
+                {CERTS.filter(c => !c.featured).map((cert, i) => (
+                  <motion.div
+                    key={`other-${i}`}
+                    whileHover={{ y: -2 }}
+                    className={`relative aspect-[4/3] rounded-lg overflow-hidden cursor-pointer border shadow-sm hover:shadow-md group ${themeConfig?.certCard || "border-slate-200"}`}
+                    onClick={() => setModalImg(cert.img)}
+                  >
+                    <img src={cert.img} alt={cert.label} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 filter grayscale group-hover:grayscale-0" />
+                    <div className="absolute inset-0 bg-black/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-[10px] font-bold tracking-widest text-white text-center px-1">{cert.label}</span>
                     </div>
                   </motion.div>
                 ))}

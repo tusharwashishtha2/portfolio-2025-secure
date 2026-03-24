@@ -61,6 +61,9 @@ export const PROJECTS = [
 ];
 
 export const CERTS = [
+    { img: "/assets/cert_ai_eng.png", label: "AI ENGINEER" },
+    { img: "/assets/cert_english.png", label: "ENGLISH CERTIFIED" },
+    { img: "/assets/cert_python_26.png", label: "PYTHON BOOTCAMP 2026" },
     { img: "/assets/cert_outskill.png", label: "GEN AI MASTERMIND" },
     { img: "/assets/cert_oneroadmap.png", label: "FRONTEND SKILL CERT" },
     { img: "/assets/cert_aws.png", label: "AWS CERTIFIED" },

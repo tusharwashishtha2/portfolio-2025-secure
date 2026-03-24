@@ -224,11 +224,13 @@ export default function PaperThemeContent() {
 
                 {/* CERTIFICATIONS SECTION */}
                 <section>
-                    <h2 className="text-4xl md:text-5xl font-bold mb-12 border-b-2 border-slate-800/30 inline-block pb-2">Verification Vault</h2>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                        {CERTS.map((cert, i) => (
+                    <h2 className="text-4xl md:text-5xl font-bold mb-8 border-b-2 border-slate-800/30 inline-block pb-2">Verification Vault</h2>
+                    
+                    <h3 className="text-xl md:text-2xl font-semibold mb-6 text-slate-700">Featured Certifications</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-16">
+                        {CERTS.filter(c => c.featured).map((cert, i) => (
                             <motion.div
-                                key={i}
+                                key={`feat-${i}`}
                                 initial={{ opacity: 0, rotate: (i % 2 === 0) ? -5 : 5 }}
                                 whileInView={{ opacity: 1, rotate: (i % 2 === 0) ? 2 : -2 }}
                                 whileHover={{ scale: 1.05, rotate: 0 }}
@@ -242,6 +244,25 @@ export default function PaperThemeContent() {
                                                 after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-1 after:h-1 after:bg-slate-300 after:rounded-full"></div>
                                 <img src={cert.img} alt={cert.label} className="w-full aspect-[4/3] object-cover filter contrast-125 sepia-[0.1]" />
                                 <div className="text-center mt-3 text-lg font-bold text-slate-800">{cert.label}</div>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    <h3 className="text-lg md:text-xl font-medium mb-6 text-slate-500 opacity-80">Other Logs</h3>
+                    <div className="flex flex-wrap gap-4 opacity-80">
+                        {CERTS.filter(c => !c.featured).map((cert, i) => (
+                            <motion.div
+                                key={`other-${i}`}
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                whileHover={{ scale: 1.02 }}
+                                transition={{ duration: 0.3 }}
+                                viewport={{ once: true }}
+                                className="relative bg-white p-2 shadow-sm border border-slate-200 cursor-pointer w-32 md:w-40"
+                                onClick={() => setModalImg(cert.img)}
+                            >
+                                <img src={cert.img} alt={cert.label} className="w-full aspect-[4/3] object-cover filter contrast-100 sepia-[0.05] grayscale-[0.2]" />
+                                <div className="text-center mt-2 text-xs font-semibold text-slate-600 truncate px-1">{cert.label}</div>
                             </motion.div>
                         ))}
                     </div>

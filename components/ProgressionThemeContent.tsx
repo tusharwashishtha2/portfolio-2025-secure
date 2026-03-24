@@ -183,21 +183,41 @@ export default function ProgressionThemeContent() {
 
                 {/* ==================== LEVEL 6: CERTIFICATIONS ==================== */}
                 <LevelContainer currentLevel={level} requiredLevel={6} title="System.Verification_Keys">
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
-                        {CERTS.map((cert, i) => (
+                    <h3 className="text-sm tracking-widest text-[#06b6d4] uppercase mb-4 opacity-80 border-b border-[#06b6d4]/20 pb-2">Primary Access Levels</h3>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 mb-12">
+                        {CERTS.filter(c => c.featured).map((cert, i) => (
                             <motion.div
-                                key={i}
+                                key={`feat-${i}`}
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: i * 0.1 }}
                                 onClick={() => setModalImg(cert.img)}
                                 className="cursor-pointer group"
                             >
-                                <div className="aspect-[4/3] border border-white/10 overflow-hidden relative mb-3 bg-slate-900 group-hover:border-cyan-500/50 transition-colors">
-                                    <div className="absolute inset-0 bg-cyan-900/40 mix-blend-multiply group-hover:opacity-0 transition-opacity z-10" />
+                                <div className="aspect-[4/3] border border-white/10 overflow-hidden relative mb-3 bg-slate-900 group-hover:border-[#06b6d4]/50 transition-colors">
+                                    <div className="absolute inset-0 bg-[#06b6d4]/10 mix-blend-multiply group-hover:opacity-0 transition-opacity z-10" />
                                     <img src={cert.img} alt={cert.label} className="w-full h-full object-cover filter brightness-75 group-hover:brightness-100 transition-all duration-500" />
                                 </div>
-                                <div className="text-[10px] text-center text-slate-400 tracking-widest uppercase group-hover:text-cyan-400 transition-colors">{cert.label}</div>
+                                <div className="text-[10px] text-center text-slate-400 tracking-widest uppercase group-hover:text-[#06b6d4] transition-colors">{cert.label}</div>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    <h3 className="text-xs tracking-widest text-slate-600 uppercase mb-4 opacity-60 border-b border-slate-800 pb-2">Secondary Credentials</h3>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 opacity-60">
+                        {CERTS.filter(c => !c.featured).map((cert, i) => (
+                            <motion.div
+                                key={`other-${i}`}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: i * 0.1 }}
+                                onClick={() => setModalImg(cert.img)}
+                                className="cursor-pointer group"
+                            >
+                                <div className="aspect-[4/3] border border-white/5 overflow-hidden relative mb-2 bg-slate-950 group-hover:border-slate-500/50 transition-colors">
+                                    <img src={cert.img} alt={cert.label} className="w-full h-full object-cover filter brightness-50 grayscale group-hover:brightness-75 group-hover:grayscale-0 transition-all duration-500" />
+                                </div>
+                                <div className="text-[8px] text-center text-slate-500 tracking-widest uppercase group-hover:text-slate-400 transition-colors">{cert.label}</div>
                             </motion.div>
                         ))}
                     </div>

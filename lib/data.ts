@@ -61,14 +61,17 @@ export const PROJECTS = [
 ];
 
 export const CERTS = [
-    { img: "/assets/cert_ai_eng.png", label: "AI ENGINEER" },
-    { img: "/assets/cert_english.png", label: "ENGLISH CERTIFIED" },
-    { img: "/assets/cert_python_26.png", label: "PYTHON BOOTCAMP 2026" },
-    { img: "/assets/cert_outskill.png", label: "GEN AI MASTERMIND" },
-    { img: "/assets/cert_oneroadmap.png", label: "FRONTEND SKILL CERT" },
-    { img: "/assets/cert_aws.png", label: "AWS CERTIFIED" },
-    { img: "/assets/cert_python_skillup.png", label: "PYTHON SKILLUP" },
-    { img: "/assets/cert_scaler.png", label: "SCALER ACADEMY" },
-    { img: "/assets/cert_udemy.png", label: "PYTHON BOOTCAMP" },
-    { img: "/assets/cert_linkedin.png", label: "LINKEDIN SKILL" },
+    // Featured
+    { img: "/assets/cert_python_26.png", label: "PYTHON BOOTCAMP 2026", featured: true },
+    { img: "/assets/cert_udemy.png", label: "AI A-Z (CHATGPT4)", featured: true },
+    { img: "/assets/cert_aws.png", label: "AWS CERTIFIED", featured: true },
+    { img: "/assets/cert_python_skillup.png", label: "PYTHON SKILLUP", featured: true },
+    { img: "/assets/cert_oneroadmap.png", label: "FRONTEND SKILL CERT", featured: true },
+    { img: "/assets/cert_linkedin.png", label: "LINKEDIN SKILL", featured: true },
+
+    // Other
+    { img: "/assets/cert_ai_eng.png", label: "AI ENGINEER", featured: false },
+    { img: "/assets/cert_english.png", label: "ENGLISH CERTIFIED", featured: false },
+    { img: "/assets/cert_outskill.png", label: "GEN AI MASTERMIND", featured: false },
+    { img: "/assets/cert_scaler.png", label: "SCALER ACADEMY", featured: false },
 ];

@@ -265,20 +265,35 @@ export default function AliveThemeContent() {
                             >
                                 <div className={`text-cyan-400 font-bold tracking-[0.2em] mb-4 border-b border-cyan-500/30 pb-2 ${focusArea === 'certs' ? 'text-center text-lg sm:text-xl border-cyan-400/60' : 'text-[10px] sm:text-sm text-right group-hover:text-cyan-300 group-hover:border-cyan-400'}`}>VERIFICATION_VAULT</div>
                                 {focusArea === 'certs' && (
-                                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6 bg-black/60 border border-cyan-500/30 px-6 pt-6 pb-24 sm:px-10 sm:pt-10 sm:pb-28 rounded-2xl backdrop-blur-xl max-h-[70vh] overflow-y-auto w-full pointer-events-auto">
-                                        {CERTS.map((cert, i) => (
-                                            <div
-                                                key={i}
-                                                onClick={(e) => { e.stopPropagation(); setModalImg(cert.img); }}
-                                                className="relative aspect-video bg-cyan-950/40 border border-cyan-500/30 rounded-xl overflow-hidden group/cert cursor-pointer hover:border-cyan-400 transition-colors"
-                                            >
-                                                <img src={cert.img} alt={cert.label} className="w-full h-full object-cover opacity-60 group-hover/cert:opacity-100 transition-opacity grayscale group-hover/cert:grayscale-0" />
-                                                <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 opacity-0 group-hover/cert:opacity-100 transition-all">
-                                                    <ZoomIn className="text-white mb-2" size={24} />
-                                                    <span className="text-cyan-400 text-xs font-bold tracking-widest">{cert.label}</span>
-                                                </div>
+                                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col gap-10 mt-6 bg-black/60 border border-cyan-500/30 px-6 pt-6 pb-24 sm:px-10 sm:pt-10 sm:pb-28 rounded-2xl backdrop-blur-xl max-h-[70vh] overflow-y-auto w-full pointer-events-auto">
+                                        <div>
+                                            <h4 className="text-cyan-400 text-sm tracking-widest uppercase mb-4 opacity-80 border-b border-cyan-500/20 pb-2">Primary Access</h4>
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                                                {CERTS.filter(c => c.featured).map((cert, i) => (
+                                                    <div key={`feat-${i}`} onClick={(e) => { e.stopPropagation(); setModalImg(cert.img); }} className="relative aspect-video bg-cyan-950/40 border border-cyan-500/30 rounded-xl overflow-hidden group/cert cursor-pointer hover:border-cyan-400 transition-colors">
+                                                        <img src={cert.img} alt={cert.label} className="w-full h-full object-cover opacity-60 group-hover/cert:opacity-100 transition-opacity grayscale group-hover/cert:grayscale-0" />
+                                                        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 opacity-0 group-hover/cert:opacity-100 transition-all">
+                                                            <ZoomIn className="text-white mb-2" size={24} />
+                                                            <span className="text-cyan-400 text-xs font-bold tracking-widest">{cert.label}</span>
+                                                        </div>
+                                                    </div>
+                                                ))}
                                             </div>
-                                        ))}
+                                        </div>
+
+                                        <div>
+                                            <h4 className="text-cyan-600 text-xs tracking-widest uppercase mb-4 opacity-70 border-b border-cyan-800/20 pb-2">Secondary Badges</h4>
+                                            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                                                {CERTS.filter(c => !c.featured).map((cert, i) => (
+                                                    <div key={`other-${i}`} onClick={(e) => { e.stopPropagation(); setModalImg(cert.img); }} className="relative aspect-video bg-cyan-950/20 border border-cyan-900/30 rounded-lg overflow-hidden group/cert cursor-pointer hover:border-cyan-600 transition-colors opacity-70 hover:opacity-100">
+                                                        <img src={cert.img} alt={cert.label} className="w-full h-full object-cover opacity-40 group-hover/cert:opacity-80 transition-opacity grayscale" />
+                                                        <div className="absolute inset-x-0 bottom-0 bg-black/80 px-2 py-1 pt-4 bg-gradient-to-t from-black to-transparent text-center">
+                                                            <span className="text-cyan-500 text-[10px] font-bold tracking-widest truncate block leading-none pb-1">{cert.label}</span>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
                                     </motion.div>
                                 )}
                             </motion.div>

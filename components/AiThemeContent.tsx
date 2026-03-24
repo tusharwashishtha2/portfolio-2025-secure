@@ -224,9 +224,10 @@ export default function AiThemeContent() {
 
                     <GlassModule title="MODULE 03B // SYSTEM CERTIFICATIONS" delay={0.2}>
                         <div className="space-y-4">
-                            {CERTS.map((cert, i) => (
+                            <h4 className="text-xs font-mono text-[#06b6d4] tracking-widest border-b border-white/10 pb-2 mb-4">PRIMARY CLEARANCE</h4>
+                            {CERTS.filter(c => c.featured).map((cert, i) => (
                                 <div
-                                    key={i}
+                                    key={`feat-${i}`}
                                     className="flex items-center gap-4 p-3 bg-white/5 rounded-lg border border-white/5 hover:border-[#06b6d4]/30 hover:bg-[#06b6d4]/5 transition-colors cursor-pointer group"
                                     onClick={() => setModalImg(cert.img)}
                                 >
@@ -235,6 +236,18 @@ export default function AiThemeContent() {
                                     <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
                                         <span className="text-[10px] font-mono text-[#06b6d4] uppercase tracking-widest border border-[#06b6d4]/30 px-2 py-1 rounded">Verified</span>
                                     </div>
+                                </div>
+                            ))}
+                            
+                            <h4 className="text-xs font-mono text-slate-500 tracking-widest border-b border-white/10 pb-2 mt-8 mb-4">SECONDARY CLEARANCE</h4>
+                            {CERTS.filter(c => !c.featured).map((cert, i) => (
+                                <div
+                                    key={`other-${i}`}
+                                    className="flex items-center gap-3 p-2 bg-transparent rounded-lg border border-transparent hover:border-white/10 hover:bg-white/[0.02] transition-colors cursor-pointer group opacity-70 hover:opacity-100"
+                                    onClick={() => setModalImg(cert.img)}
+                                >
+                                    <img src={cert.img} alt={cert.label} className="w-6 h-6 rounded object-cover border border-white/10 grayscale group-hover:grayscale-0 transition-all" />
+                                    <span className="text-xs text-slate-400 group-hover:text-slate-200 transition-colors">{cert.label}</span>
                                 </div>
                             ))}
                         </div>

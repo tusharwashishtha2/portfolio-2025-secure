@@ -464,10 +464,11 @@ export default function ProofThemeContent() {
                         <span className="w-8 h-px bg-[#2bff6b]/50"></span>
                     </h2>
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                        {CERTS.map((cert, i) => (
+                    <h3 className="text-xs uppercase tracking-[0.3em] text-[#8fa094] mb-8 border-b border-[#2bff6b]/20 pb-2 text-center max-w-xl mx-auto">Vanguard Certifications</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-center max-w-5xl mx-auto mb-16">
+                        {CERTS.filter(c => c.featured).map((cert, i) => (
                             <motion.div
-                                key={i}
+                                key={`feat-${i}`}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -482,6 +483,26 @@ export default function ProofThemeContent() {
                                     <img src={cert.img || ""} alt={cert.label || "Certificate"} className="w-full h-full object-contain relative z-10 opacity-70 group-hover:opacity-100 transition-opacity mix-blend-screen" />
                                 </div>
                                 <span className="text-xs uppercase tracking-[0.2em] text-[#8fa094] group-hover:text-white transition-colors text-center">{cert.label || "CERTIFICATE"}</span>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    <h3 className="text-[10px] uppercase tracking-[0.2em] text-[#4a5c50] mb-6 text-center border-b border-[#14331e] pb-2 max-w-md mx-auto">Supplemental Validations</h3>
+                    <div className="flex flex-wrap justify-center gap-4 opacity-60">
+                        {CERTS.filter(c => !c.featured).map((cert, i) => (
+                            <motion.div
+                                key={`other-${i}`}
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                className="group cursor-pointer flex flex-col items-center gap-2 w-24 md:w-32"
+                                onClick={() => setModalImg(cert.img || "")}
+                            >
+                                <div className="w-full aspect-square border border-[#14331e] bg-[#020403] p-1 relative overflow-hidden flex items-center justify-center">
+                                    <img src={cert.img || ""} alt={cert.label || "Certificate"} className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 opacity-40 group-hover:opacity-80 transition-all mix-blend-screen" />
+                                </div>
+                                <span className="text-[9px] uppercase tracking-[0.1em] text-[#4a5c50] group-hover:text-[#8fa094] transition-colors text-center line-clamp-2 leading-tight">{cert.label || "CERTIFICATE"}</span>
                             </motion.div>
                         ))}
                     </div>

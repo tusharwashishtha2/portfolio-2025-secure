@@ -246,10 +246,11 @@ export default function LespThemeContent() {
                         <span className="text-[10px] text-[#555]">READ-ONLY</span>
                     </div>
 
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                        {CERTS.map((cert, i) => (
+                    <h3 className="text-xs uppercase tracking-[0.3em] text-[#888] mb-6"># PRIMARY RECORDS</h3>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-12">
+                        {CERTS.filter(c => c.featured).map((cert, i) => (
                             <div
-                                key={i}
+                                key={`feat-${i}`}
                                 className="group cursor-pointer border border-white/10 bg-[#050505] p-3 hover:border-white/50 hover:bg-[#0a0a0a] transition-colors relative"
                                 onClick={() => setModalImg(cert.img || "")}
                             >
@@ -260,6 +261,24 @@ export default function LespThemeContent() {
                                     <img src={cert.img || ""} alt={cert.label} className="w-full h-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all" />
                                 </div>
                                 <div className="text-[9px] text-center text-[#888] uppercase tracking-[0.2em] group-hover:text-white transition-colors break-words">
+                                    {cert.label}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <h3 className="text-[10px] uppercase tracking-[0.3em] text-[#444] mb-4"># SECONDARY LOGS</h3>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 opacity-50">
+                        {CERTS.filter(c => !c.featured).map((cert, i) => (
+                            <div
+                                key={`other-${i}`}
+                                className="group cursor-pointer border border-white/5 bg-[#030303] p-2 hover:border-white/20 transition-colors relative"
+                                onClick={() => setModalImg(cert.img || "")}
+                            >
+                                <div className="w-full aspect-video border border-white/5 bg-black flex items-center justify-center mb-2 p-1">
+                                    <img src={cert.img || ""} alt={cert.label} className="w-full h-full object-contain grayscale opacity-30 group-hover:opacity-60 transition-all" />
+                                </div>
+                                <div className="text-[8px] text-center text-[#555] uppercase tracking-[0.2em] group-hover:text-[#888] transition-colors truncate">
                                     {cert.label}
                                 </div>
                             </div>

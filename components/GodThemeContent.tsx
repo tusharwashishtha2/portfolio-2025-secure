@@ -371,15 +371,29 @@ export default function GodThemeContent() {
                                 <h2 className="text-2xl font-mono tracking-[0.2em] uppercase text-cyan-50">Security & Credentials</h2>
                             </div>
 
-                            <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
-                                {CERTS.map((cert, i) => (
+                            <h3 className="text-sm font-mono tracking-widest text-cyan-500 mb-6 uppercase opacity-80">Prime Credentials</h3>
+                            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+                                {CERTS.filter(c => c.featured).map((cert, i) => (
                                     <div
-                                        key={i}
+                                        key={`feat-${i}`}
                                         onClick={() => setModalImg(cert.img)}
                                         className="bg-black/40 border border-white/5 p-4 rounded-xl cursor-pointer group hover:bg-white/5 hover:border-cyan-500/30 transition-all duration-300 text-center flex flex-col items-center justify-center min-h-[120px]"
                                     >
                                         <Shield className="text-slate-600 group-hover:text-cyan-400 mb-3 transition-colors" size={24} />
                                         <span className="text-xs font-mono uppercase tracking-widest text-slate-400 group-hover:text-cyan-50">{cert.label}</span>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <h3 className="text-xs font-mono tracking-widest text-slate-500 mb-4 uppercase opacity-60">Auxiliary Credentials</h3>
+                            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 opacity-70">
+                                {CERTS.filter(c => !c.featured).map((cert, i) => (
+                                    <div
+                                        key={`other-${i}`}
+                                        onClick={() => setModalImg(cert.img)}
+                                        className="bg-black/20 border border-white/5 p-3 rounded-lg cursor-pointer group hover:bg-white/5 transition-all duration-300 text-center flex flex-col items-center justify-center min-h-[80px]"
+                                    >
+                                        <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-slate-500 group-hover:text-slate-300 transition-colors leading-tight">{cert.label}</span>
                                     </div>
                                 ))}
                             </div>

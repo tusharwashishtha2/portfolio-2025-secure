@@ -188,9 +188,10 @@ export default function HiddenThemeContent() {
                         <h2 className="text-sm md:text-base tracking-[0.5em] text-slate-500 uppercase border-b border-slate-800 pb-4 inline-block">System.Verification_Keys</h2>
                     </ProximityReveal>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                        {CERTS.map((cert, i) => (
-                            <ProximityReveal key={i} hitAreaPadding="p-6">
+                    <h3 className="text-xs tracking-[0.4em] text-white/40 uppercase mb-8 border-b border-white/5 pb-2 inline-block">Primary Validation</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-16">
+                        {CERTS.filter(c => c.featured).map((cert, i) => (
+                            <ProximityReveal key={`feat-${i}`} hitAreaPadding="p-6">
                                 <div
                                     className="group flex flex-col items-center gap-4 relative"
                                     onClick={() => { if (typeof window !== 'undefined' && window.innerWidth >= 768) setModalImg(cert.img) }}
@@ -208,6 +209,32 @@ export default function HiddenThemeContent() {
                                         </div>
                                     </div>
                                     <div className="text-xs text-center text-slate-500 tracking-widest uppercase">{cert.label}</div>
+                                </div>
+                            </ProximityReveal>
+                        ))}
+                    </div>
+
+                    <h3 className="text-[10px] tracking-[0.3em] text-white/20 uppercase mb-6 border-b border-white/5 pb-2 inline-block">Secondary Badges</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 opacity-50">
+                        {CERTS.filter(c => !c.featured).map((cert, i) => (
+                            <ProximityReveal key={`other-${i}`} hitAreaPadding="p-4">
+                                <div
+                                    className="group flex flex-col items-center gap-2 relative"
+                                    onClick={() => { if (typeof window !== 'undefined' && window.innerWidth >= 768) setModalImg(cert.img) }}
+                                >
+                                    <div className="w-full aspect-[4/3] bg-[#020202] border border-white/5 overflow-hidden relative md:cursor-pointer">
+                                        <div className="absolute inset-0 bg-black/80 group-hover:bg-black/50 transition-colors duration-700 z-10 mix-blend-multiply" />
+                                        <img src={cert.img} alt={cert.label} className="w-full h-full object-cover filter brightness-50 group-hover:brightness-75 transition-all duration-1000" />
+                                        <div className="absolute inset-0 flex items-center justify-center md:hidden z-20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <button
+                                                className="pointer-events-auto p-2 bg-black/60 border border-white/10 rounded-full text-white/50 backdrop-blur-md"
+                                                onClick={(e) => { e.stopPropagation(); setModalImg(cert.img); }}
+                                            >
+                                                <Eye size={16} />
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div className="text-[10px] text-center text-slate-600 tracking-widest uppercase">{cert.label}</div>
                                 </div>
                             </ProximityReveal>
                         ))}

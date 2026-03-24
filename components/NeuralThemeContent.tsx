@@ -202,17 +202,35 @@ export default function NeuralThemeContent() {
                 {/* SECTION 6 - CERTIFICATIONS */}
                 <section className="w-full max-w-6xl">
                     <h2 className="text-3xl tracking-widest text-center text-[#e0aaff] mb-16 font-light">VALIDATION NODES // CERTS</h2>
-                    <div className="flex flex-wrap justify-center gap-8">
-                        {CERTS.map((cert, i) => (
+                    <h3 className="text-sm tracking-widest text-center text-[#9d4edd] mb-8 font-mono uppercase">Core Nodes</h3>
+                    <div className="flex flex-wrap justify-center gap-8 mb-16">
+                        {CERTS.filter(c => c.featured).map((cert, i) => (
                             <motion.div
-                                key={i}
+                                key={`feat-${i}`}
                                 whileHover={{ scale: 1.05, y: -10 }}
-                                className="relative w-40 h-40 md:w-56 md:h-56 rounded-[3rem] cursor-pointer group overflow-hidden border border-[#5a189a]/50"
+                                className="relative w-40 h-40 md:w-56 md:h-56 rounded-[3rem] cursor-pointer group overflow-hidden border border-[#5a189a]/50 shadow-[0_0_15px_rgba(90,24,154,0.1)] hover:shadow-[0_0_30px_rgba(157,78,221,0.2)]"
                                 onClick={() => setModalImg(cert.img)}
                             >
                                 <img src={cert.img} alt={cert.label} className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700 mix-blend-screen" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end justify-center pb-6">
-                                    <span className="text-[10px] tracking-widest text-[#e0aaff] group-hover:text-white transition-colors uppercase">{cert.label}</span>
+                                    <span className="text-[10px] tracking-widest text-[#e0aaff] group-hover:text-white transition-colors uppercase text-center px-4">{cert.label}</span>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    <h3 className="text-xs tracking-widest text-center text-[#5a189a] mb-6 font-mono uppercase opacity-70">Support Nodes</h3>
+                    <div className="flex flex-wrap justify-center gap-4 opacity-60">
+                        {CERTS.filter(c => !c.featured).map((cert, i) => (
+                            <motion.div
+                                key={`other-${i}`}
+                                whileHover={{ scale: 1.05 }}
+                                className="relative w-28 h-28 md:w-36 md:h-36 rounded-full cursor-pointer group overflow-hidden border border-[#3c096c]/40"
+                                onClick={() => setModalImg(cert.img)}
+                            >
+                                <img src={cert.img} alt={cert.label} className="w-full h-full object-cover opacity-30 group-hover:opacity-80 transition-opacity duration-700 mix-blend-screen grayscale group-hover:grayscale-0" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex items-end justify-center pb-4">
+                                    <span className="text-[8px] tracking-widest text-[#c8b6ff] group-hover:text-white transition-colors uppercase text-center px-2">{cert.label}</span>
                                 </div>
                             </motion.div>
                         ))}

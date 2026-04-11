@@ -21,7 +21,7 @@ const PROOF_SKILLS = [
 ]
 
 const PROOF_EDU = [
-    { school: "Malwa Institute of Technology", degree: "Bachelor of Information Technology", score: "CGPA 6.70" }
+    { school: "Malwa Institute of Technology", degree: "Bachelor of Information Technology", score: "" }
 ]
 
 // Animated Typewriter
@@ -107,9 +107,9 @@ export default function ProofThemeContent() {
                     </div>
 
                     <p className="text-xl md:text-2xl tracking-[0.2em] font-light text-[#aabdb1] uppercase max-w-3xl leading-relaxed text-justify">
-                        Python + Front-End + AI Developer
+                        Entry-Level Front-End & Python Developer
                         <br />
-                        <span className="text-[#2bff6b] text-sm md:text-base opacity-80 mt-4 block">Focused on Web, AI, ML, and System Design.</span>
+                        <span className="text-[#2bff6b] text-sm md:text-base opacity-80 mt-4 block leading-relaxed">Focused on Web Development, AI & Machine Learning.<br/>Ready to Learn and Collaborate.</span>
                     </p>
 
                     <div className="flex flex-wrap justify-center gap-4 mt-8 opacity-80">
@@ -192,11 +192,13 @@ export default function ProofThemeContent() {
                                     <h3 className="text-xl md:text-2xl text-white tracking-widest uppercase">{edu.degree}</h3>
                                     <p className="text-[#aabdb1] tracking-wider text-sm">{edu.school}</p>
                                 </div>
-                                <div className="text-right">
-                                    <span className="inline-block px-4 py-2 bg-[#2bff6b]/10 text-[#2bff6b] border border-[#2bff6b]/30 tracking-[0.2em] text-sm uppercase">
-                                        [ {edu.score} ]
-                                    </span>
-                                </div>
+                                {edu.score && (
+                                    <div className="text-right">
+                                        <span className="inline-block px-4 py-2 bg-[#2bff6b]/10 text-[#2bff6b] border border-[#2bff6b]/30 tracking-[0.2em] text-sm uppercase">
+                                            [ {edu.score} ]
+                                        </span>
+                                    </div>
+                                )}
                             </motion.div>
                         ))}
                     </div>

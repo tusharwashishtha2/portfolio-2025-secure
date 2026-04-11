@@ -16,7 +16,7 @@ export const SKILLS = [
 export const EDUCATION = [
     {
         title: "Bachelor of Technology (IT)",
-        meta: "Malwa Institute of Technology // CGPA 6.70",
+        meta: "Malwa Institute of Technology",
         desc: "Focused on Data Structures, Algorithms, and System Design. Built a strong theoretical foundation in computer science principles."
     }
 ];

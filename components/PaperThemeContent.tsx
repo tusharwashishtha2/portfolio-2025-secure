@@ -291,8 +291,8 @@ export default function PaperThemeContent() {
                             </div>
 
                             <a
-                                href="/assets/Tushar_Washishtha_Resume_Fixed.pdf"
-                                download="Tushar_Washishtha_Resume.pdf"
+                                href="/assets/Tushar_2026.pdf"
+                                download="Tushar_2026.pdf"
                                 onClick={handleResumeDownload}
                                 className="mt-12 group relative inline-flex items-center gap-3 px-8 py-3 bg-slate-900 text-white text-2xl font-bold overflow-hidden"
                             >

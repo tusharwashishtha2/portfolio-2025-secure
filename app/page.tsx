@@ -580,8 +580,8 @@ export default function Portfolio() {
                 </div>
 
                 <a
-                  href="/assets/Tushar_Washishtha_Resume_Fixed.pdf"
-                  download="Tushar_Washishtha_Resume_Fixed.pdf"
+                  href="/assets/Tushar_2026.pdf"
+                  download="Tushar_2026.pdf"
                   onClick={handleResumeDownload}
                   className={`inline-flex items-center gap-2 border px-8 py-4 rounded-full transition-all duration-300 font-bold tracking-widest text-sm ${themeConfig?.resumeBtn || "border-slate-300 hover:bg-slate-900 hover:text-white"}`}
                 >

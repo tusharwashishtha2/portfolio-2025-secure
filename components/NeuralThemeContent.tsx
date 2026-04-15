@@ -256,8 +256,8 @@ export default function NeuralThemeContent() {
                         </div>
 
                         <a
-                            href="/assets/Tushar_Washishtha_Resume_Fixed.pdf"
-                            download="Tushar_Washishtha_Resume_Fixed.pdf"
+                            href="/assets/Tushar_2026.pdf"
+                            download="Tushar_2026.pdf"
                             onClick={handleResumeDownload}
                             className="inline-flex items-center gap-4 bg-white/5 border border-white/20 px-8 py-4 rounded-full text-white font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-all cursor-pointer"
                         >

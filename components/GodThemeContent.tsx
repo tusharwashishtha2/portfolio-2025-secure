@@ -421,8 +421,8 @@ export default function GodThemeContent() {
                                         Transmit Mail
                                     </a>
                                     <a
-                                        href="/assets/Tushar_Washishtha_Resume_Fixed.pdf"
-                                        download="Tushar_Washishtha_Resume_Fixed.pdf"
+                                        href="/assets/Tushar_2026.pdf"
+                                        download="Tushar_2026.pdf"
                                         onClick={handleResumeDownload}
                                         className="flex-1 w-full bg-cyan-500 text-black hover:bg-white border border-transparent font-mono tracking-widest font-bold text-sm uppercase py-4 rounded-lg transition-colors flex items-center justify-center gap-3 group"
                                     >

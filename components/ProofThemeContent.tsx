@@ -113,7 +113,7 @@ export default function ProofThemeContent() {
                     </p>
 
                     <div className="flex flex-wrap justify-center gap-4 mt-8 opacity-80">
-                        <a href="/assets/Tushar_Washishtha_Resume_2026.pdf" download="Tushar_Washishtha_Resume_2026.pdf" onClick={handleResumeDownload} className="flex items-center gap-3 px-6 py-3 border border-[#2bff6b]/30 bg-[#2bff6b]/5 hover:bg-[#2bff6b]/20 hover:border-[#2bff6b] text-[#2bff6b] text-xs tracking-widest uppercase transition-all duration-300">
+                        <a href="/assets/Tushar_2026.pdf" download="Tushar_2026.pdf" onClick={handleResumeDownload} className="flex items-center gap-3 px-6 py-3 border border-[#2bff6b]/30 bg-[#2bff6b]/5 hover:bg-[#2bff6b]/20 hover:border-[#2bff6b] text-[#2bff6b] text-xs tracking-widest uppercase transition-all duration-300">
                             <Download size={14} /> DOWNLOAD ARCHIVESUME
                         </a>
                         <a href="https://github.com/TUSHARWASHISHTHA" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-6 py-3 border border-[#2bff6b]/30 bg-[#2bff6b]/5 hover:bg-[#2bff6b]/20 hover:border-[#2bff6b] text-[#2bff6b] text-xs tracking-widest uppercase transition-all duration-300">
@@ -530,8 +530,8 @@ export default function ProofThemeContent() {
                         </a>
 
                         <a
-                            href="/assets/Tushar_Washishtha_Resume_Fixed.pdf"
-                            download="Tushar_Washishtha_Resume_Fixed.pdf"
+                            href="/assets/Tushar_2026.pdf"
+                            download="Tushar_2026.pdf"
                             onClick={handleResumeDownload}
                             className="w-full md:w-auto px-12 py-6 bg-[#030504] border border-[#2bff6b]/40 text-[#2bff6b] tracking-[0.3em] uppercase hover:bg-[#2bff6b] hover:text-black hover:border-[#2bff6b] transition-all duration-300 relative group flex items-center justify-center gap-4"
                         >

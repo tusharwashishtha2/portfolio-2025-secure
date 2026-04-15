@@ -307,8 +307,8 @@ export default function LespThemeContent() {
                         <div className="flex flex-col md:flex-row md:items-center items-start gap-4 relative z-[9999]">
                             <span className="text-[10px] text-[#666] md:w-24">FILE_EXPORT_</span>
                             <a
-                                href="/assets/Tushar_Washishtha_Resume_Fixed.pdf"
-                                download="Tushar_Washishtha_Resume_Fixed.pdf"
+                                href="/assets/Tushar_2026.pdf"
+                                download="Tushar_2026.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={handleResumeDownload}

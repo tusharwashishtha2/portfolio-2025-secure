@@ -317,9 +317,9 @@ export default function AliveThemeContent() {
                                         <a href="https://github.com/tusharwashishtha2" target="_blank" rel="noopener noreferrer" className="p-4 bg-cyan-950/50 border border-cyan-500/30 rounded-full hover:bg-cyan-900 hover:border-cyan-400 transition-all text-cyan-200">
                                             <Github size={24} />
                                         </a>
-                                        <button onClick={handleResumeDownload} className="p-4 bg-cyan-950/50 border border-cyan-500/30 rounded-full hover:bg-cyan-900 hover:border-cyan-400 transition-all text-cyan-200">
+                                        <a href="/assets/Tushar_2026.pdf" download="Tushar_2026.pdf" onClick={handleResumeDownload} className="p-4 bg-cyan-950/50 border border-cyan-500/30 rounded-full hover:bg-cyan-900 hover:border-cyan-400 transition-all text-cyan-200">
                                             <Download size={24} />
-                                        </button>
+                                        </a>
                                     </motion.div>
                                 )}
                             </motion.div>

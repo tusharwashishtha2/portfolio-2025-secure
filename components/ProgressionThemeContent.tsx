@@ -242,13 +242,15 @@ export default function ProgressionThemeContent() {
                             <a href="https://github.com/tusharwashishtha2" className="hover:text-cyan-400 transition-colors">[ GitHub ]</a>
                         </div>
 
-                        <button
+                        <a
+                            href="/assets/Tushar_2026.pdf"
+                            download="Tushar_2026.pdf"
                             onClick={handleResumeDownload}
                             className="flex items-center gap-3 px-8 py-4 border border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-black transition-all tracking-widest uppercase"
                         >
                             <Download size={18} />
                             Extract Payload (Resume)
-                        </button>
+                        </a>
                     </div>
                 </LevelContainer>
 

@@ -261,13 +261,15 @@ export default function HiddenThemeContent() {
                                 </a>
                             </div>
 
-                            <button
+                            <a
+                                href="/assets/Tushar_2026.pdf"
+                                download="Tushar_2026.pdf"
                                 onClick={handleResumeDownload}
                                 className="mt-12 flex items-center gap-4 border border-white/20 text-slate-300 px-8 py-4 hover:bg-white hover:text-black hover:border-white transition-all duration-700 uppercase tracking-[0.3em] text-sm"
                             >
                                 <Download size={16} />
                                 Extract_Data.pdf
-                            </button>
+                            </a>
                         </div>
                     </ProximityReveal>
                 </section>

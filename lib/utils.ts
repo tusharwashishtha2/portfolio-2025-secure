@@ -6,22 +6,26 @@ export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs))
 }
 
-export const handleResumeDownload = async (e: React.MouseEvent) => {
+export const handleResumeDownload = async (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
+    const target = e.currentTarget;
+    const fileUrl = target.getAttribute('href') || '/assets/Tushar_2026.pdf';
+    const fileName = target.getAttribute('download') || 'Tushar_2026.pdf';
+    
     try {
-        const response = await fetch('/assets/Tushar_Washishtha_Resume_2026.pdf');
+        const response = await fetch(fileUrl);
         if (!response.ok) throw new Error("Network response was not ok");
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
-        link.download = 'Tushar_Washishtha_Resume_2026.pdf';
+        link.download = fileName;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
         window.URL.revokeObjectURL(url);
     } catch (error) {
         console.error('Download failed, using fallback:', error);
-        window.open('/assets/Tushar_Washishtha_Resume_2026.pdf', '_blank');
+        window.open(fileUrl, '_blank');
     }
 };

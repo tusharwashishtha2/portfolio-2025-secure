@@ -392,8 +392,8 @@ export default function Portfolio() {
                   <div className="flex flex-nowrap justify-center gap-2 sm:gap-6 pt-8 w-full">
                     {[
                       { n: "4", l: "Major Projects" },
-                      { n: "5", l: "Certifications" },
-                      { n: "15+", l: "Technologies" }
+                      { n: "5+", l: "Certifications" },
+                      { n: "10+", l: "Technologies" }
                     ].map((c, i) => (
                       <div key={i} className="flex-1 text-center">
                         <span className="block text-3xl sm:text-4xl font-bold">{c.n}</span>
